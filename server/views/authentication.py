@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import app
 
-MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@knox+\.edu+$)"
 
 # GUIDE: requests to api endpoints, such as /api/signup are dealt with by individual functions
 # The route function wrapper here has an argument, methods=["POST"]. This tells Flask that this function
@@ -17,7 +17,7 @@ MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 def sign_up():
     schema = Schema({
         "username": str,
-        "email": Regex(MAIL_REGEX, error="Mail address is invalid"),
+        "email": Regex(MAIL_REGEX, error="Mail address is invalid. Must be a knox.edu address."),
         "password": str
     })
     validated = schema.validate(request.json)
