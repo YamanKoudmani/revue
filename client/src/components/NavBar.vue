@@ -1,7 +1,14 @@
 <template lang="html">
   <nav>
+  
+    
+   
+
+    
     <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
+    <router-link class="services" :to="{ name: 'service' }">Service</router-link>
     <div class="dropdown">
+    
       <button class="dropbtn">Subvues</button>
       <div class="dropdown-content">
         <router-link
@@ -54,7 +61,9 @@ nav a {
 .title {
   font-weight: bold;
 }
-
+.Service{
+  font-weight:bold;
+}
 .create-subvue {
   background-color: rgb(23, 92, 93);
   color: white !important;
