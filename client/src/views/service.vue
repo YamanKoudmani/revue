@@ -1,13 +1,15 @@
-
 <template lang="service">
 <div class="float">
 
 <div class="container">
-<div class="photo"><img src="/assets/Knox_oldmain.jpg" 
+
+
+<div class="photo"><img src= "Knox_oldmain.png" alt="Kartik"
+
     width=400px;
     height=300px;
     align=left;
-    >
+    />
     
 </div>
 </div>
@@ -48,7 +50,7 @@
 </template>
 
 
-import  from './components/HelloWorld.vue'
+
 <style scoped lang="css">
 
 .float{
@@ -60,9 +62,13 @@ padding:10px;
    margin:0px,50px,0;
    width: 40%;
     float: left;
-    padding: 20px;
-    
-    
+    padding: 20px;  
+}
+.photos{
+   margin:0px,300px,0;
+   width: 40%;
+    float: right;
+    padding: 20px;  
 }
 .serve{
   text-align:left;
