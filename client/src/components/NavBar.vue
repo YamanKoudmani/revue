@@ -1,6 +1,7 @@
 <template lang="html">
   <nav>
     <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
+      <router-link class="title" :to="{ name: 'Service', }">Services</router-link>
     <div class="dropdown">
       <button class="dropbtn">Subvues</button>
       <div class="dropdown-content">
