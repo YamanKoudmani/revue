@@ -1,10 +1,16 @@
 <template>
     <div id="app">
+   
         <NavBar />
-
+         
         <main>
             <router-view />
         </main>
+       
+        
+             
+        
+       
     </div>
 </template>
 
@@ -21,7 +27,15 @@ export default {
 }
 </script>
 
+#service{
+    
+  margin:200px 50px 0;
+  font-size: 75px;
+  font-weight: bold;
+  text-align: center;
+  color:darkslategrey;
 
+}
 <style>
 #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;

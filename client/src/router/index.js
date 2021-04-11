@@ -45,10 +45,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "createsubvue" */ '@/views/CreateSubvue')
   },
   {
-    path: '/create/service',
-    name: 'services',
-    component: () => import(/* webpackChunkName: "createsubvue" */ '@/views/CreateSubvue')
+
+
+    path: '/service',
+    name: 'service',
+    component: () => import(/* webpackChunkName: "services" */ '@/views/service')
   },
+
+
 ]
 
 const router = createRouter({
