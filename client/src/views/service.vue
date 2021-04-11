@@ -3,18 +3,17 @@
 
 <div class="container">
 
-
-<div class="photo"><img src= "Knox_oldmain.png" alt="Kartik"
-
+<div class="photo"><img src=  "/assets/Knox_oldmain.jpg"
     width=400px;
     height=300px;
     align=left;
     />
+    </div>
+
     
-</div>
+
 </div>
   <div class="container">
-
       <div class="serve">
        <h1 id= "name" name="ser">
       
