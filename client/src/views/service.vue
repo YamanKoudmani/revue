@@ -1,9 +1,14 @@
 <template lang="service">
 <div class="float">
-
+<div class="knox"><img src ="/assets/Knox.jpg"
+    width=200px;
+    height=200px;
+    align=right;
+    />
+    </div>
 <div class="container">
 
-<div class="photo"><img src=  "/assets/Knox_oldmain.jpg"
+<div class="photo"><img src ="/assets/Knox_oldmain.jpg"
     width=400px;
     height=300px;
     align=left;
@@ -31,6 +36,11 @@
     <h2>
     Service Name:
     </h2>
+    <div id="app">
+      <star-rating></star-rating>
+  <p>Rating component (with set value that <strong>can't</strong> be changed)</p>
+  <star-rating value="3" :disabled="true"></star-rating>
+</div>
     </div>
     <div class="locate">
     <h3>
@@ -63,11 +73,13 @@ padding:10px;
     float: left;
     padding: 20px;  
 }
-.photos{
-   margin:0px,300px,0;
-   width: 40%;
+
+.knox{
+   margin:0px,0px,0;
+   width: 200px;
+   height: 0%;
     float: right;
-    padding: 20px;  
+      
 }
 .serve{
   text-align:left;
