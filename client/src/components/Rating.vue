@@ -1,14 +1,14 @@
 <template>
     <div class="star-rating">
       <ul>
-        <li  v-for :key="rating in ratings"> ★</li></ul></div>
-
+        <li class="visible-stars" v-for="rating in parseInt(value)"  v-bind:key="rating">★</li>
+        <li class="invisible-stars" v-for="rating in parseInt(5-value)"  v-bind:key="rating">★</li>
+      </ul>
+    </div>
 </template>
 <script>
-
-export default{
-  
-name : 'star-rating'
+export default {
+  name: 'Rating',
   props: {
     'name': String,
     'value': null,
@@ -16,8 +16,6 @@ name : 'star-rating'
     'disabled': Boolean,
     'required': Boolean
   },
-
-
 
   /*
    * Initial state of the component's data.
@@ -33,44 +31,8 @@ name : 'star-rating'
     /*
      * Behaviour of the stars on mouseover.
      */
-    star_over: function(index) {
-      var self = this;
-
-      if (!this.disabled) {
-        this.temp_value = this.value;
-        return this.value = index;
-      }
-
-    },
-
-    /*
-     * Behaviour of the stars on mouseout.
-     */
-    star_out: function() {
-      var self = this;
-
-      if (!this.disabled) {
-        return this.value = this.temp_value;
-      }
-    },
-
-    /*
-     * Set the rating.
-     */
-    set: function(value) {
-      var self = this;
-
-      if (!this.disabled) {
-        this.temp_value = value;
-        return this.value = value;
-      }
-    }
   }
-});
-
-new Vue({
-  el: '#app'
-});
+}
 
 </script>
 <style>
@@ -85,7 +47,7 @@ new Vue({
 
 
 
-  .star-rating.star {
+  .invisible-stars {
     display: inline-block;
     padding: 3px;
     vertical-align: middle;
@@ -94,5 +56,16 @@ new Vue({
     color: #ABABAB;
     transition: color .2s ease-out;
   }
-}
+
+  .visible-stars {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5em;
+    color: #cac726;
+    transition: color .2s ease-out;
+  }
+
+
 </style>
