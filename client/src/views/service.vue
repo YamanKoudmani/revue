@@ -1,32 +1,19 @@
-
 <template lang="service">
 <div class="float">
 
 <div class="container">
-<div class="photo"><img src="/assets/Knox_oldmain.jpg" 
-    width=400px;
-    height=300px;
-    align=left;
-    >
+<div><img class = "photo" alt="Knox Oldmain" src="@/assets/Knox_oldmain.jpg">
     
 </div>
 </div>
   <div class="container">
-
       <div class="serve">
-       <h1 id= "name" name="ser">
-      
-    Services
-    </h1>
+       <h1 id= "name" name="ser">   Services</h1>
+       </div>
+  </div>
+</div>
 
- 
- </div>
- 
-    </div>
-    </div>
-
-    <div class="bod">
-    
+<div class="bod"> 
     <h2>
     Service Name:
     </h2>
@@ -47,49 +34,45 @@
   </div>
 </template>
 
-
-import  from './components/HelloWorld.vue'
+import from './components/HelloWorld.vue'
 <style scoped lang="css">
-
-.float{
-
-padding:10px;
-
+.float {
+  padding: 10px;
 }
- .container{
-   margin:0px,50px,0;
-   width: 40%;
-    float: left;
-    padding: 20px;
-    
-    
+.container {
+  margin: 0px, 50px, 0;
+  width: 40%;
+  float: left;
+  padding: 20px;
 }
-.serve{
-  text-align:left;
-font-size: 50px;
+.serve {
+  text-align: left;
+  font-size: 50px;
 }
-.bod{
-  
+.bod {
   margin: 400px 10px 0;
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
 
-.locate{
-    margin: 125px 10px 0;
+.locate {
+  margin: 125px 10px 0;
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
-.student{
-    margin: 200px 10px 0;
+.student {
+  margin: 200px 10px 0;
   font-size: 35px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
 
+.photo {
+  width: 200px;
+}
 </style>

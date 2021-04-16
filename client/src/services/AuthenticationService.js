@@ -1,12 +1,16 @@
-import Api from '@/services/Api'
+import Api from "@/services/Api";
 
 export default {
-  signup (credentials) {
+  signup(credentials) {
     // GUIDE: An api call. This function takes an argument, credentials, and tries to sign up with it on the server
-    return Api().post('signup', credentials)
+    return Api().post("signup", credentials);
   },
 
-  login (credentials) {
-    return Api().post('login', credentials)
-  }
-}
+  login(credentials) {
+    return Api().post("login", credentials);
+  },
+
+  confirmation() {
+    return Api().get("confirmation");
+  },
+};

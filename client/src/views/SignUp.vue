@@ -2,32 +2,43 @@
   <div class="signup">
     <form @submit.prevent="signUp">
       <h1>Sign Up</h1>
-      <p class="error" :class="{ 'deprecated-error' : deprecatedError }">{{ error }}</p>
-      <input type="text" v-model="username" placeholder="Username" ref="username">
-      <input type="email" v-model="email" placeholder="E-Mail">
-      <input type="password" v-model="password" placeholder="Password">
-      <input type="password" v-model="passwordRepeat" placeholder="Repeat Password">
+      <p class="error" :class="{ 'deprecated-error': deprecatedError }">
+        {{ error }}
+      </p>
+      <input
+        type="text"
+        v-model="username"
+        placeholder="Username"
+        ref="username"
+      />
+      <input type="email" v-model="email" placeholder="E-Mail" />
+      <input type="password" v-model="password" placeholder="Password" />
+      <input
+        type="password"
+        v-model="passwordRepeat"
+        placeholder="Repeat Password"
+      />
       <p v-if="!passwordsMatch" class="error">Passwords do not match!</p>
-      <input class="button" type="submit" value="Sign Up">
+      <input class="button" type="submit" value="Sign Up" />
     </form>
   </div>
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthenticationService from "@/services/AuthenticationService";
 
 export default {
-  name: 'signup',
+  name: "signup",
 
   data() {
     return {
-      error: '',
+      error: "",
       deprecatedError: false,
-      username: '',
-      password: '',
-      passwordRepeat: '',
-      email: ''
-    }
+      username: "",
+      password: "",
+      passwordRepeat: "",
+      email: "",
+    };
   },
 
   methods: {
@@ -37,24 +48,24 @@ export default {
         AuthenticationService.signup({
           username: this.username,
           password: this.password,
-          email: this.email
+          email: this.email,
         })
-        .then(response => {
-          this.$store.dispatch('setToken', response.data.token)
-          this.$store.dispatch('setUser', response.data.user)
-          this.$router.push({name: 'Home'})
-        })
-        .catch(e => {
-          this.error = e.response.data.error;
-        })
+          .then((response) => {
+            this.$store.dispatch("setToken", response.data.token);
+            this.$store.dispatch("setUser", response.data.user);
+            this.$router.push({ name: "Confirmation" });
+          })
+          .catch((e) => {
+            this.error = e.response.data.error;
+          });
       }
-    }
+    },
   },
 
   computed: {
     passwordsMatch() {
-      return (this.password == this.passwordRepeat)
-    }
+      return this.password == this.passwordRepeat;
+    },
   },
 
   watch: {
@@ -72,13 +83,13 @@ export default {
 
     email() {
       this.deprecatedError = true;
-    }
+    },
   },
 
   mounted() {
     this.$refs.username.focus();
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="css">
@@ -122,7 +133,7 @@ input {
   margin: 20px 0;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 </style>

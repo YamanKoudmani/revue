@@ -6,6 +6,7 @@ import os
 
 from datetime import date
 from flask import Flask, jsonify, send_from_directory
+
 from flask.json import JSONEncoder
 from flask_cors import CORS
 
@@ -23,10 +24,10 @@ class CustomJSONEncoder(JSONEncoder):
             return list(iterable)
         return JSONEncoder.default(self, obj)
 
-
 app = Flask(__name__)
 app.json_encoder = CustomJSONEncoder
 app.config["SECRET_KEY"] = config.flask_secret_key
+
 # GUIDE: Cross-Origin Resource Sharing is a mechanism used by servers to tell the browser which other servers the browser should trust for this site.
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 CORS(app)

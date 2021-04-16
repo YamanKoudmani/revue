@@ -1,64 +1,73 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
-import Home from '@/views/Home'
+import Home from "@/views/Home";
 
 // GUIDE: This file defines urls for the frontend
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/Search',
-    name: 'Search-Page',
-    component: () => import( '@/views/SearchPage')  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/Login')
+    path: "/Search",
+    name: "Search-Page",
+    component: () => import("@/views/SearchPage"),
   },
   {
-    path: '/signup',
-    name: 'SignUp',
-    component: () => import(/* webpackChunkName: "signup" */ '@/views/SignUp')
+    path: "/login",
+    name: "Login",
+    component: () => import(/* webpackChunkName: "login" */ "@/views/Login"),
   },
   {
-    path: '/s/:name',
-    name: 'Subvue',
-    component: () => import(/* webpackChunkName: "subvue" */ '@/views/Subvue')
+    path: "/signup",
+    name: "SignUp",
+    component: () => import(/* webpackChunkName: "signup" */ "@/views/SignUp"),
   },
   {
-    path: '/s/:subvuePermalink/:id',
-    name: 'Post',
-    component: () => import(/* webpackChunkName: "post" */ '@/views/Post')
+    path: "/s/:name",
+    name: "Subvue",
+    component: () => import(/* webpackChunkName: "subvue" */ "@/views/Subvue"),
   },
   {
-    path: '/u/:username',
-    name: 'User',
-    component: () => import(/* webpackChunkName: "user" */ '@/views/User')
+    path: "/s/:subvuePermalink/:id",
+    name: "Post",
+    component: () => import(/* webpackChunkName: "post" */ "@/views/Post"),
   },
   {
-    path: '/create',
-    name: 'CreatePost',
-    component: () => import(/* webpackChunkName: "create" */ '@/views/CreatePost')
+    path: "/u/:username",
+    name: "User",
+    component: () => import(/* webpackChunkName: "user" */ "@/views/User"),
   },
   {
-    path: '/create/subvue',
-    name: 'CreateSubvue',
-    component: () => import(/* webpackChunkName: "createsubvue" */ '@/views/CreateSubvue')
+    path: "/create",
+    name: "CreatePost",
+    component: () =>
+      import(/* webpackChunkName: "create" */ "@/views/CreatePost"),
   },
   {
-    path: '/service',
-    name: 'service',
-    component: () => import(/* webpackChunkName: "services" */ '@/views/service')
+    path: "/create/subvue",
+    name: "CreateSubvue",
+    component: () =>
+      import(/* webpackChunkName: "createsubvue" */ "@/views/CreateSubvue"),
   },
-
-]
+  {
+    path: "/service",
+    name: "service",
+    component: () =>
+      import(/* webpackChunkName: "services" */ "@/views/service"),
+  },
+  {
+    path: "/Confirmation",
+    name: "Confirmation",
+    component: () =>
+      import(/*webpackChunkName: "Confirmation" */ "@/views/Confirmation"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

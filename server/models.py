@@ -3,7 +3,7 @@ import hashlib
 import os
 
 from mongoengine import (
-    connect, Document, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
+    connect, Document, BooleanField, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
     EmbeddedDocumentField, CASCADE
 )
 
@@ -24,6 +24,8 @@ class User(Document):
     password = StringField(required=True)
     subscribed = ListField(ReferenceField("Subvue"))
     created = DateTimeField(required=True, default=datetime.datetime.now())
+    #confirmed = StringField(require=True)
+    confirmed = BooleanField(default=False, required=True)
 
     def to_public_json(self):
         hashed_email = hashlib.md5(self.email.encode("utf-8")).hexdigest()
