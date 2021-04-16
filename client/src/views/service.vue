@@ -32,8 +32,10 @@
 
 
     <div class="locate">
+      
     <h3>Location Ratings:</h3>
-    <Rating value="3"></Rating>
+    
+    <Rating value="1"></Rating>
     </div>
 
     <div class="student">
