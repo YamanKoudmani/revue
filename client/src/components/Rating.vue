@@ -1,16 +1,14 @@
 <template>
     <div class="star-rating">
-        <label class="star-rating__star" v-for="rating in ratings" \
-        :class="{\'is-selected\': ((value >= rating) && value != null), \'is-disabled\': disabled}" \
-        v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">\
-        <input class="star-rating star-rating__checkbox" type="radio" :value="rating" :name="name" \
-        v-model="value" :disabled="disabled">★</label></div>
-
+      <ul>
+        <li class="visible-stars" v-for="rating in parseInt(value)"  v-bind:key="rating">★</li>
+        <li class="invisible-stars" v-for="rating in parseInt(5-value)"  v-bind:key="rating">★</li>
+      </ul>
+    </div>
 </template>
 <script>
-
-Vue.component('star-rating', {
-
+export default {
+  name: 'Rating',
   props: {
     'name': String,
     'value': null,
@@ -18,8 +16,6 @@ Vue.component('star-rating', {
     'disabled': Boolean,
     'required': Boolean
   },
-
-
 
   /*
    * Initial state of the component's data.
@@ -35,44 +31,8 @@ Vue.component('star-rating', {
     /*
      * Behaviour of the stars on mouseover.
      */
-    star_over: function(index) {
-      var self = this;
-
-      if (!this.disabled) {
-        this.temp_value = this.value;
-        return this.value = index;
-      }
-
-    },
-
-    /*
-     * Behaviour of the stars on mouseout.
-     */
-    star_out: function() {
-      var self = this;
-
-      if (!this.disabled) {
-        return this.value = this.temp_value;
-      }
-    },
-
-    /*
-     * Set the rating.
-     */
-    set: function(value) {
-      var self = this;
-
-      if (!this.disabled) {
-        this.temp_value = value;
-        return this.value = value;
-      }
-    }
   }
-});
-
-new Vue({
-  el: '#app'
-});
+}
 
 </script>
 <style>
@@ -87,7 +47,7 @@ new Vue({
 
 
 
-  .star-rating.star {
+  .invisible-stars {
     display: inline-block;
     padding: 3px;
     vertical-align: middle;
@@ -95,22 +55,16 @@ new Vue({
     font-size: 1.5em;
     color: #ABABAB;
     transition: color .2s ease-out;
-
-    &:hover {
-      cursor: pointer;
-    }
-    
-    &.is-selected {
-      color: #FFD700;
-    }
-    
-    &.is-disabled:hover {
-      cursor: default;
-    }
   }
 
-  &__checkbox {
-    @extend %visually-hidden;
+  .visible-stars {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5em;
+    color: #cac726;
+    transition: color .2s ease-out;
   }
 
 

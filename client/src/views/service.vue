@@ -1,4 +1,5 @@
-<template lang="service">
+<template>
+<div>
 <div class="float">
 <div class="knox"><img src ="/assets/Knox.jpg"
     width=200px;
@@ -37,30 +38,31 @@
     Service Name:
     </h2>
     <div id="app">
-      <star-rating></star-rating>
-  <p>Rating component (with set value that <strong>can't</strong> be changed)</p>
-  <star-rating value="3" :disabled="true"></star-rating>
 </div>
     </div>
     <div class="locate">
-    <h3>
-    Location Ratings:
-    </h3>
+    <h3>Location Ratings:</h3>
+    <Rating value="3"></Rating>
+
     </div>
     <div class="student">
-    <h4>
-    Student Reviews
-    </h4>
+    <h4>Student Reviews</h4>
      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
   </div>
   <div class="UI"> 
-
   </div>
+</div>
 </template>
 
+<script>
+import Rating from '@/components/Rating'
 
-
-<style scoped lang="css">
+export default {
+  name: 'Service',
+  components: { Rating }
+}
+</script>
+<style scoped>
 
 .float{
 
@@ -108,5 +110,4 @@ font-size: 50px;
   text-align: left;
   color:darkslategrey;
 }
-
 </style>
