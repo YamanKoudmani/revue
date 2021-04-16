@@ -1,16 +1,14 @@
 <template>
     <div class="star-rating">
-        <label class="star-rating__star" v-for="rating in ratings" \
-        :class="{\'is-selected\': ((value >= rating) && value != null), \'is-disabled\': disabled}" \
-        v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">\
-        <input class="star-rating star-rating__checkbox" type="radio" :value="rating" :name="name" \
-        v-model="value" :disabled="disabled">★</label></div>
+      <ul>
+        <li  v-for :key="rating in ratings"> ★</li></ul></div>
 
 </template>
 <script>
 
-Vue.component('star-rating', {
-
+export default{
+  
+name : 'star-rating'
   props: {
     'name': String,
     'value': null,
@@ -95,23 +93,6 @@ new Vue({
     font-size: 1.5em;
     color: #ABABAB;
     transition: color .2s ease-out;
-
-    &:hover {
-      cursor: pointer;
-    }
-    
-    &.is-selected {
-      color: #FFD700;
-    }
-    
-    &.is-disabled:hover {
-      cursor: default;
-    }
   }
-
-  &__checkbox {
-    @extend %visually-hidden;
-  }
-
-
+}
 </style>
