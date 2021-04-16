@@ -7,6 +7,8 @@
     
     <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
     <router-link class="services" :to="{ name: 'service' }">Service</router-link>
+    <router-link class="search" :to="{ name: 'Search-Page' }">Search</router-link>
+
     <div class="dropdown">
     
       <button class="dropbtn">Subvues</button>
