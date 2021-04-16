@@ -34,7 +34,7 @@ export default {
     },
     itemClicked(index){
       this.selected = index;
-      this.$router.push({name: 'Home'})
+      this.$router.push({name: 'service'})
       console.log(this.matches[index]);
     },
     selectItem(){
