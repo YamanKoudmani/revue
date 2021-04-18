@@ -2,7 +2,7 @@
     <div>
     <div class="float">
     <div class="knox"><img src ="/assets/Knox.jpg"
-    width=380px;
+    width=390px;
     height=310px;
     align=right;
     />
@@ -15,14 +15,7 @@
     align=left; />
     </div>
     
-    </div>
-
-
-  <div class="container">
-      <div class="SearchPage">
-        <h1>Services</h1>
-        
-    </div>
+    
     
     </div>
 
@@ -102,17 +95,11 @@ padding:10px;
       
 }
 
-.SearchPage{
-  margin: 0px auto;
-  margin-top:0px;
-  width: 800px;
-  text-align: left;
-  font-size: 45px;
-}
+
 .search{
-  margin:0px 650px;
+  margin:0px 450px;
   margin-top:250px;
-  width: 640px;
+  width: 670px;
 }
 .bod{
   
