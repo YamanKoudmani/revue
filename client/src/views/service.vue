@@ -2,8 +2,8 @@
     <div>
     <div class="float">
     <div class="knox"><img src ="/assets/Knox.jpg"
-    width=100px;
-    height=100px;
+    width=250px;
+    height=250px;
     align=right;
     />
     </div>
@@ -14,20 +14,27 @@
     height=300px;
     align=left; />
     </div>
+    
     </div>
+
 
   <div class="container">
-      <div class="serve">
-       <h1 id= "name" name="ser"> Services</h1>
+      <div class="SearchPage">
+        <h1>Services</h1>
+        
     </div>
+    
     </div>
 
     </div>
-
-
+<div class="search">
+<SearchBox :items="services" filterby="name" />
+    </div>
 
     <div class="bod">
+      
     <h2> Service Name: </h2>
+    
     </div>
 
 
@@ -51,11 +58,26 @@
 
 <script>
 import Rating from '@/components/Rating'
+import SearchBox from '@/components/SearchBox'
+import services from '@/assets/services.js'
+
 
 export default {
   name: 'Service',
-  components: { Rating }
+    mounted(){
+        this.services = services;
+        console.log(this.services);
+    },
+    data(){
+        return {
+            services: []
+        };
+    },
+    components: { 
+        SearchBox,Rating
+    }
 }
+
 </script>
 
 
@@ -76,14 +98,23 @@ padding:10px;
 
 .knox{
    margin:0px,0px,0;
-   width: 100px;
+   width: 250px;
    height: 0%;
   float: right;
       
 }
-.serve{
-  text-align:left;
-font-size: 50px;
+
+.SearchPage{
+  margin: 0px auto;
+  margin-top:0px;
+  width: 800px;
+  text-align: left;
+  font-size: 45px;
+}
+.search{
+  margin:0px 500px;
+  margin-top:250px;
+  width: 640px;
 }
 .bod{
   

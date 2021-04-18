@@ -9,7 +9,8 @@
 
 \
     <router-link class="services" :to="{ name: 'service' }">Service</router-link>
-
+   <router-link class="Searchpage" :to="{ name: 'Search-Page' }">SearchPage</router-link>
+     
     <div class="dropdown">
     
       <button class="dropbtn">Subvues</button>
