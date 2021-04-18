@@ -3,7 +3,11 @@ import hashlib
 import os
 
 from mongoengine import (
+<<<<<<< HEAD
     connect, Document, BooleanField, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
+=======
+    connect, Document, EmailField, IntField, SortedListField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
+>>>>>>> development
     EmbeddedDocumentField, CASCADE
 )
 
@@ -39,6 +43,50 @@ class User(Document):
         }
 
         return data
+
+class Reviews(Document):
+    username = StringField(required=True)
+    title = StringField(required=True)
+    content = StringField(required=True, max_length=400)
+    ratings = ListField(IntField(), required=True)
+    created = DateTimeField(required=True, default=datetime.datetime.now())
+    
+    def to_public_json(self):
+        data = {
+            "id": str(self.id),
+            "username": self.username,
+            "title": title,
+            "content": content,
+            "ratings": ratings,
+            "created": self.created,
+        }
+        return data
+
+class Locations(Document):
+    name = StringField(required=True, unique=True)
+    reviewList = ListField(ReferenceField(Reviews))
+    def to_public_json(self):
+        data = {
+            "id": str(self.id),
+            "name": self.name,
+            "reviewList": self.reviewList,
+        }
+        return data
+
+class Services(Document):
+    name = StringField(required=True, unique=True)
+    description = StringField(required=True)
+    locations = SortedListField(ReferenceField(Locations), required=True)
+    
+    def to_public_json(self):
+        data = {
+            "id": str(self.id),
+            "name": self.name,
+            "description": description,
+            "locations": locations,
+        }
+        return data
+
 
 
 class Comment(EmbeddedDocument):
