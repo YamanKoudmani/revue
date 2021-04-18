@@ -83,15 +83,15 @@ def demo():
     #Housing Locations
     Seymour_Hall = Locations(name = "Seymour Hall", reviewList = None).save()
     Post_Hall = Locations(name = "Post Hall", reviewList = None).save()
-    Griffith-Longden-Drew-Simmonds_Hall = Locations(name = "Griffith-Longden-Drew-Simmonds (Four-Name)", reviewList = None).save()
-    Raub-Sellew_Halls = Locations(name = "Raub-Sellew Hall", reviewList = None).save()
+    Griffith = Locations(name = "Griffith-Longden-Drew-Simmonds (Four-Name)", reviewList = None).save()
+    Raub_Sellew_Hall = Locations(name = "Raub-Sellew Hall", reviewList = None).save()
     Hamblin_Hall = Locations(name = "Hamblin Hall", reviewList = None).save()
     Sherwin_Neifert_Hall = Locations(name = "Sherwin-Neifert Hall", reviewList = None).save()
     Williston_Hall = Locations(name = "Williston Hall", reviewList = None).save()
     Exec_Apartments = Locations(name = "Exec Apartments", reviewList = None).save()
     Tomkins_Apartments = Locations(name = "Tomkins Apartments", reviewList = None).save()
     Townhouses = Locations(name = "Townhouses", reviewList = None).save()
-    housingLocations = {Seymour_Hall, Post_Hall, Griffith-Longden-Drew-Simmonds_Hall, Raub-Sellew_Halls,Hamblin_Hall,Sherwin_Neifert_Hall,Williston_Hall,Exec_Apartments,Tomkins_Apartments,Townhouses}
+    housingLocations = {Seymour_Hall, Post_Hall, Griffith, Raub_Sellew_Hall,Hamblin_Hall,Sherwin_Neifert_Hall,Williston_Hall,Exec_Apartments,Tomkins_Apartments,Townhouses}
     #IT Locations
     Burkhardtlab = Locations(name = "Burkhardt Lab", reviewList = None).save()
     CAT = Locations(name = "Caterpillar Classroom (CAT)", reviewList = None).save()

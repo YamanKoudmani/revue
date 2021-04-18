@@ -5,7 +5,7 @@ from app import app
 from flask import jsonify, request
 from models import Post, User, Comment, Subvue
 from mongoengine.errors import ValidationError
-from authorization import login_required
+from authorization import login_required, confirm_required
 
 
 @app.route("/api/posts")
