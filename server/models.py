@@ -3,11 +3,7 @@ import hashlib
 import os
 
 from mongoengine import (
-<<<<<<< HEAD
     connect, Document, BooleanField, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
-=======
-    connect, Document, EmailField, IntField, SortedListField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument,
->>>>>>> development
     EmbeddedDocumentField, CASCADE
 )
 
