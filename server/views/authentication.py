@@ -1,11 +1,24 @@
 import jwt
 
-from flask import jsonify, request
+from flask import jsonify, request, Flask, url_for
 from models import User
 from schema import Schema, Regex
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired
+from authorization import login_required
 from app import app
+
+#config for the flask_mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'knoxrateaservice@gmail.com' 
+app.config['MAIL_PASSWORD'] = 'team5@123'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+mail = Mail(app)
+s = URLSafeTimedSerializer('Nooneknow')
 
 MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 
@@ -36,6 +49,7 @@ def sign_up():
         password=hashed_password
     ).save()
 
+
     token = jwt.encode({
         "username": user.username,
         "email": user.email,
@@ -53,6 +67,7 @@ def sign_up():
         },
         "token": token.decode("UTF-8")
     })
+
 
 
 @app.route("/api/login", methods=["POST"])
@@ -90,3 +105,28 @@ def login():
         },
         "token": token.decode("UTF-8")
     })
+
+
+@app.route("/api/confirmation", methods=["GET"])
+@login_required
+def send_email(username: str):
+#send email
+    user = User.objects(username=username).first()
+    email = str(user.email)
+    conf = s.dumps(email, salt = 'email-confirm')
+    msg = Message('Confirm Email', sender='knoxrateaservice@gmail.com', recipients=[email])
+    link = url_for('confirm_email', token=conf, _external=True)
+    msg.body = 'Please click the link {} to verify your email'.format(link)
+    mail.send(msg)
+    return 'success'
+
+@app.route("/api/confirm_email/<token>")
+def confirm_email(token):
+    try:
+        email = s.loads(token, salt='email-confirm', max_age=3600)
+        user = User.objects(email=email).first()
+        user.confirmed = True;
+        user.save();
+    except SignatureExpired:
+        return '<h1>The link is expired!</h1>'
+    return '<h1>Your email has been verified please go back to the login page!</h1>'
