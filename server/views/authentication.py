@@ -20,7 +20,7 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 s = URLSafeTimedSerializer('Nooneknow')
 
-MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[knox]+\.[edu]+$)"
+MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@knox+\.+edu+$)"
 
 # GUIDE: requests to api endpoints, such as /api/signup are dealt with by individual functions
 # The route function wrapper here has an argument, methods=["POST"]. This tells Flask that this function

@@ -33,8 +33,9 @@
 
     <div class="bod">
       
-    <h2> Service Name: </h2>
-    
+    <h2> {{currentService.name}} </h2>
+    <li class="locList" v-for="location in currentService.locations" v-bind:key="location">{{location}}</li>
+
     </div>
 
 
@@ -57,24 +58,48 @@
 <script>
 import Rating from '@/components/Rating'
 import SearchBox from '@/components/SearchBox'
-import services from '@/assets/services.js'
-
+import store from '@/store/index'
+import ServicesService from '@/services/ServicesService'
 
 export default {
   name: 'Service',
-    mounted(){
-        this.services = services;
-        console.log(this.services);
+      components: { 
+        SearchBox,Rating
     },
     data(){
         return {
-            services: []
-        };
+        services: [],
+        currentService: []
+      };
     },
-    components: { 
-        SearchBox,Rating
-    }
+    mounted(){
+        this.currentService = store.state.selectedService;
+        this.fetchData()
+        console.log(this.currentService);
+    },
+    watch: {
+      $route() {
+          this.fetchData()
+      }
+    },
+
+    methods: {
+      fetchData() {
+        ServicesService.list()
+          .then(response => {
+            this.services = response.data
+          })
+          .catch(e => {
+            this.error = e.response.data
+          })
+      },
+    },
 }
+
+
+
+
+
 
 </script>
 

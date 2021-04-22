@@ -44,16 +44,16 @@ class Reviews(Document):
     username = StringField(required=True)
     title = StringField(required=True)
     content = StringField(required=True, max_length=400)
-    ratings = ListField(IntField(), required=True)
+    rating = IntField()
     created = DateTimeField(required=True, default=datetime.datetime.now())
     
     def to_public_json(self):
         data = {
             "id": str(self.id),
             "username": self.username,
-            "title": title,
-            "content": content,
-            "ratings": ratings,
+            "title": self.title,
+            "content": self.content,
+            "rating": self.rating,
             "created": self.created,
         }
         return data
@@ -78,8 +78,8 @@ class Services(Document):
         data = {
             "id": str(self.id),
             "name": self.name,
-            "description": description,
-            "locations": locations,
+            "description": self.description,
+            "locations": self.locations,
         }
         return data
 
