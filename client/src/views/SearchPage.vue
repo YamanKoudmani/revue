@@ -7,13 +7,10 @@
 
 <script>
 import SearchBox from '@/components/SearchBox'
-import services from '@/assets/services.js'
+import ServicesService from '@/services/ServicesService'
+//import services from '@/assets/services.js'
 export default {
     name: 'Search-Page',
-    mounted(){
-        this.services = services;
-        console.log(this.services);
-    },
     data(){
         return {
             services: []
@@ -21,9 +18,30 @@ export default {
     },
     components: { 
         SearchBox
+    },
+    mounted(){
+       this.fetchData()
+    },
+    watch: {
+        $route() {
+            this.fetchData()
+        }
+    },
+    methods: {
+    fetchData() {
+      ServicesService.list()
+        .then(response => {
+          this.services = response.data
+        })
+        .catch(e => {
+          this.error = e.response.data
+        })
     }
+  },
 }
+
 </script>
+
 <style scoped>
 .SearchPage {
   margin: 0px auto;

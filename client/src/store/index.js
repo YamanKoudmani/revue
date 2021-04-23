@@ -15,7 +15,8 @@ export default Vuex.createStore({
         token: null,
         user: null,
         isUserLoggedIn: false,
-        subscribedSubvues: []
+        subscribedSubvues: [],
+        selectedService: []
     },
 
     mutations: {
@@ -32,10 +33,16 @@ export default Vuex.createStore({
         },
         setSubscribedSubvues(state, subvues) {
             state.subscribedSubvues = subvues
-        }
+        },
+        setServiceState(state, newS) {
+            state.selectedService = newS
+        },
     },
 
     actions: {
+        setServiceState({ commit }, state) {
+            commit('setServiceState', state)
+        },
         setToken({ commit }, token) {
             commit('setToken', token)
         },
