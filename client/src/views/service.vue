@@ -110,9 +110,9 @@ padding:10px;
   font-size: 45px;
 }
 .search{
-  margin:0px 500px;
-  margin-top:250px;
-  width: 640px;
+  margin:0px 550px;
+  margin-top:315px;
+  width: 600px;
 }
 .bod{
   
