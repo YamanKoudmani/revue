@@ -36,7 +36,9 @@ export default {
 
 </script>
 <style>
-
+.star-rating {
+  display: inline-block;
+}
 .visually-hidden {
   position: absolute;
   overflow: hidden;

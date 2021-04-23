@@ -58,7 +58,7 @@ class Reviews(Document):
         }
         return data
 
-class Locations(Document):
+class Locations(EmbeddedDocument):
     name = StringField(required=True, unique=True)
     reviewList = ListField(ReferenceField(Reviews))
     def to_public_json(self):
@@ -72,7 +72,7 @@ class Locations(Document):
 class Services(Document):
     name = StringField(required=True, unique=True)
     description = StringField(required=True)
-    locations = SortedListField(ReferenceField(Locations), required=True)
+    locations = ListField(EmbeddedDocumentField(Locations, dbref=True), required=True)
     
     def to_public_json(self):
         data = {

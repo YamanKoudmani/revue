@@ -77,63 +77,67 @@ def request_entity_too_large(e):
 @app.route("/api/yay")
 def demo():
     #Food Locations
-    Cafe = Locations(name = "Hard Knox Cafe", reviewList = None).save()
-    Gizmo = Locations(name = "Gizmo", reviewList = None).save()
-    GrabnGo = Locations(name = "Grab n Go", reviewList = None).save()
-    Outpost = Locations(name = "Outpost Express (C-Store)", reviewList = None).save()
-    foodLocations = {Cafe, Gizmo, GrabnGo, Outpost}
+    Cafe = Locations(name = "Hard Knox Cafe", reviewList = None)
+    Gizmo = Locations(name = "Gizmo", reviewList = None)
+    GrabnGo = Locations(name = "Grab n Go", reviewList = None)
+    Outpost = Locations(name = "Outpost Express (C-Store)", reviewList = None)
+    foodLocations = [Cafe, Gizmo, GrabnGo, Outpost]
     #Housing Locations
-    Seymour_Hall = Locations(name = "Seymour Hall", reviewList = None).save()
-    Post_Hall = Locations(name = "Post Hall", reviewList = None).save()
-    Griffith = Locations(name = "Griffith-Longden-Drew-Simmonds (Four-Name)", reviewList = None).save()
-    Raub_Sellew_Hall = Locations(name = "Raub-Sellew Hall", reviewList = None).save()
-    Hamblin_Hall = Locations(name = "Hamblin Hall", reviewList = None).save()
-    Sherwin_Neifert_Hall = Locations(name = "Sherwin-Neifert Hall", reviewList = None).save()
-    Williston_Hall = Locations(name = "Williston Hall", reviewList = None).save()
-    Exec_Apartments = Locations(name = "Exec Apartments", reviewList = None).save()
-    Tomkins_Apartments = Locations(name = "Tomkins Apartments", reviewList = None).save()
-    Townhouses = Locations(name = "Townhouses", reviewList = None).save()
-    housingLocations = {Seymour_Hall, Post_Hall, Griffith, Raub_Sellew_Hall,Hamblin_Hall,Sherwin_Neifert_Hall,Williston_Hall,Exec_Apartments,Tomkins_Apartments,Townhouses}
+    Seymour_Hall = Locations(name = "Seymour Hall", reviewList = None)
+    Post_Hall = Locations(name = "Post Hall", reviewList = None)
+    Griffith = Locations(name = "Griffith-Longden-Drew-Simmonds (Four-Name)", reviewList = None)
+    Raub_Sellew_Hall = Locations(name = "Raub-Sellew Hall", reviewList = None)
+    Hamblin_Hall = Locations(name = "Hamblin Hall", reviewList = None)
+    Sherwin_Neifert_Hall = Locations(name = "Sherwin-Neifert Hall", reviewList = None)
+    Williston_Hall = Locations(name = "Williston Hall", reviewList = None)
+    Exec_Apartments = Locations(name = "Exec Apartments", reviewList = None)
+    Tomkins_Apartments = Locations(name = "Tomkins Apartments", reviewList = None)
+    Townhouses = Locations(name = "Townhouses", reviewList = None)
+    housingLocations = [Seymour_Hall, Post_Hall, Griffith, Raub_Sellew_Hall,Hamblin_Hall,Sherwin_Neifert_Hall,Williston_Hall,Exec_Apartments,Tomkins_Apartments,Townhouses]
     #IT Locations
-    Burkhardtlab = Locations(name = "Burkhardt Lab", reviewList = None).save()
-    CAT = Locations(name = "Caterpillar Classroom (CAT)", reviewList = None).save()
-    Digital_Studio = Locations(name = "Sparks Digital Studio (WAC)", reviewList = None).save()
-    Stellyeslab = Locations(name = "Stellyes Lab", reviewList = None).save()
-    Founderslab = Locations(name = "Founders Lab", reviewList = None).save()
-    ITLocations = {Burkhardtlab, CAT, Digital_Studio, Stellyeslab, Founderslab}
+    Burkhardtlab = Locations(name = "Burkhardt Lab", reviewList = None)
+    CAT = Locations(name = "Caterpillar Classroom (CAT)", reviewList = None)
+    Digital_Studio = Locations(name = "Sparks Digital Studio (WAC)", reviewList = None)
+    Stellyeslab = Locations(name = "Stellyes Lab", reviewList = None)
+    Founderslab = Locations(name = "Founders Lab", reviewList = None)
+    ITLocations = [Burkhardtlab, CAT, Digital_Studio, Stellyeslab, Founderslab]
     #Physical Activites
-    Andrew_Fitness = Locations(name = "E & L Andrew fitness center", reviewList = None).save()
-    Fieldhouse = Locations(name = "Fieldhouse", reviewList = None).save()
-    Basketball = Locations(name = "Basketball", reviewList = None).save()
-    Tennis_court = Locations(name = "Tennis court", reviewList = None).save()
-    Swimming_pool = Locations(name = "Swimming pool", reviewList = None).save()
-    Soccer_Field = Locations(name = "Soccer field", reviewList = None).save()
-    Knosher_Bowl = Locations(name = "Knosher Bowl", reviewList = None).save()
-    physicalLocations = {Andrew_Fitness, Fieldhouse, Basketball, Tennis_court, Swimming_pool, Soccer_Field, Knosher_Bowl}
+    Andrew_Fitness = Locations(name = "E & L Andrew fitness center", reviewList = None)
+    Fieldhouse = Locations(name = "Fieldhouse", reviewList = None)
+    Basketball = Locations(name = "Basketball", reviewList = None)
+    Tennis_court = Locations(name = "Tennis court", reviewList = None)
+    Swimming_pool = Locations(name = "Swimming pool", reviewList = None)
+    Soccer_Field = Locations(name = "Soccer field", reviewList = None)
+    Knosher_Bowl = Locations(name = "Knosher Bowl", reviewList = None)
+    physicalLocations = [Andrew_Fitness, Fieldhouse, Basketball, Tennis_court, Swimming_pool, Soccer_Field, Knosher_Bowl]
     #Library Locations    
-    Seymour = Locations(name = "Seymour", reviewList = None).save()
-    SMClibrary = Locations(name = "SMC Library", reviewList = None).save()
-    libraryLocations = {Seymour, SMClibrary}
+    Seymour = Locations(name = "Seymour", reviewList = None)
+    SMClibrary = Locations(name = "SMC Library", reviewList = None)
+    libraryLocations = [Seymour, SMClibrary]
     #Creativity 
-    CFA_dance_studio = Locations(name = "CFA: Dance Studio", reviewList = None).save()
-    CFA_paino_rooms = Locations(name = "CFA: Piano Rooms", reviewList = None).save()
-    Harbach_Theatre = Locations(name = "Harbach Theatre", reviewList = None).save()
-    Kresge = Locations(name = "Kresge Recital Hall", reviewList = None).save()
-    Round_Room = Locations(name = "CFA: Round Room", reviewList = None).save()
-    WAC_print_making = Locations(name = "WAC: Print Making Studio", reviewList = None).save()
-    WAC_drawing = Locations(name = "WAC: Drawing Studio", reviewList = None).save()
-    WAC_photo_printer = Locations(name = "WAC: Photo Printer", reviewList = None).save()
-    creativityLocations = {CFA_dance_studio, CFA_paino_rooms, Harbach_Theatre, Kresge, Round_Room, WAC_print_making, WAC_drawing, WAC_photo_printer}
+    CFA_dance_studio = Locations(name = "Dance Studio", reviewList = None)
+    CFA_Piano_Room = Locations(name = "CFA: Piano Rooms", reviewList = None)
+    Harbach_Theatre = Locations(name = "Harbach Theatre", reviewList = None)
+    Kresge = Locations(name = "Kresge Recital Hall", reviewList = None)
+    Round_Room = Locations(name = "CFA: Round Room", reviewList = None)
+    WAC_print_making = Locations(name = "WAC: Print Making Studio", reviewList = None)
+    WAC_drawing = Locations(name = "WAC: Drawing Studio", reviewList = None)
+    WAC_photo = Locations(name = "WAC: Photography Studio", reviewList = None)
+    WAC_painting = Locations(name = "WAC: Painting Studio", reviewList = None)
+    WAC_sculpting = Locations(name = "WAC: Sculpting Studio", reviewList = None)
+    WAC_graphic = Locations(name = "WAC: Graphic Design Studio", reviewList = None)
+    WAC_ceramics = Locations(name = "WAC: Ceramics Studio", reviewList = None)
+    creativityLocations = [CFA_dance_studio, CFA_Piano_Room, Harbach_Theatre, Kresge, Round_Room, WAC_print_making, WAC_drawing, WAC_photo, WAC_painting, WAC_sculpting, WAC_graphic, WAC_ceramics]
     #Postal
-    Mail = Locations(name = "Mail Room", reviewList = None).save()
-    mailLocations = {Mail}
+    Mail = Locations(name = "Mail Room", reviewList = None)
+    mailLocations = [Mail]
     #Health
-    HealthS = Locations(name = "Health services", reviewList = None).save()
-    HealthC = Locations(name = "Health Counseling", reviewList = None).save()
-    healthLocations = {HealthS, HealthC}
+    HealthS = Locations(name = "Health services", reviewList = None)
+    HealthC = Locations(name = "Health Counseling", reviewList = None)
+    healthLocations = [HealthS, HealthC]
     #Entertainment
-    Taylor = Locations(name = "Taylor Lounge", reviewList = None).save()
-    entertainmentLocations = {Taylor}
+    Taylor = Locations(name = "Taylor Lounge", reviewList = None)
+    entertainmentLocations = [Taylor]
 
     #SERVICES
     FoodServices = Services(name = "Food", description = "There are a variety of meal services around Knox. Below you'll find detailed information on the locations offered:", locations = foodLocations).save()
