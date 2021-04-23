@@ -1,70 +1,50 @@
 <template>
-    <div>
-    <div class="float">
-    <div class="knox"><img src ="/assets/Knox.jpg"
-    width=250px;
-    height=250px;
-    align=right;
-    />
-    </div>
-
-    <div class="container">
-   <div class="photo"><img src ="/assets/Knox_oldmain.jpg"
-    width=400px;
-    height=300px;
-    align=left; />
-    </div>
-    
-    </div>
-
-
-  <div class="container">
-      <div class="SearchPage">
-        <h1>Services</h1>
-        
-    </div>
-    
-    </div>
-
-    </div>
-<div class="search">
-<SearchBox :items="services" filterby="name" />
+  <div>
+    <div class="title">
+      <div class="t-obj">
+        <img src ="/assets/Knox.jpg"
+          width=250px;
+          height=250px;
+        />
+      </div>
+      <div class="t-obj">
+        <img src ="/assets/Knox_oldmain.jpg"
+          width=400px;
+          height=300px;
+        />
+      </div>
+      <div class="t-obj">
+        <div class="SearchPage">
+          <h1>Services</h1> 
+          <SearchBox :items="services" filterby="name" />
+        </div>
+      </div>
     </div>
 
     <div class="bod">
-      
-    <h2> {{currentService.name}} </h2>
-    <li class="locList" v-for="location in currentService.locations" v-bind:key="location">{{location}}</li>
+      <h2> {{currentService.name}}</h2>
+      <h4> {{currentService.description}}</h4>
 
-    </div>
-
-
-    <div class="locate">
-    <h3>Location Ratings:</h3>
-    <Rating value="3"></Rating>
+      <LocationsDisplay></LocationsDisplay>
     </div>
 
     <div class="student">
-    <h4>Student Reviews</h4>
-    <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
+      <h4>Student Reviews</h4>
+      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
     </div>
-  
-  
-    </div>
+
+  </div>
 </template>
 
-
-
 <script>
-import Rating from '@/components/Rating'
 import SearchBox from '@/components/SearchBox'
-import store from '@/store/index'
 import ServicesService from '@/services/ServicesService'
-
+import LocationsDisplay from '@/components/LocationsDisplay'
+import store from '@/store/index'
 export default {
   name: 'Service',
       components: { 
-        SearchBox,Rating
+        SearchBox, LocationsDisplay
     },
     data(){
         return {
@@ -73,16 +53,14 @@ export default {
       };
     },
     mounted(){
+        this.services = this.fetchData()
         this.currentService = store.state.selectedService;
-        this.fetchData()
-        console.log(this.currentService);
     },
     watch: {
       $route() {
           this.fetchData()
       }
     },
-
     methods: {
       fetchData() {
         ServicesService.list()
@@ -95,38 +73,18 @@ export default {
       },
     },
 }
-
-
-
-
-
-
 </script>
 
-
-
-
 <style scoped>
-.float{
-
-padding:10px;
-
+.title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
 }
- .container{
-   margin:0px,50px,0;
-   width: 40%;
-    float: left;
-    padding: 20px;  
+.t-obj {
+  flex: 1;
 }
-
-.knox{
-   margin:0px,0px,0;
-   width: 250px;
-   height: 0%;
-  float: right;
-      
-}
-
 .SearchPage{
   margin: 0px auto;
   margin-top:0px;
@@ -140,7 +98,6 @@ padding:10px;
   width: 640px;
 }
 .bod{
-  
   margin: 400px 10px 0;
   font-size: 30px;
   font-weight: bold;

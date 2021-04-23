@@ -5,4 +5,7 @@ export default {
     list() {
       return Api().get('services')
     },
+    getService(s) {
+      return Api().get('services/' + s)
+    },
 }
