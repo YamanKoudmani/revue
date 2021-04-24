@@ -26,10 +26,20 @@
       <h4> {{currentService.description}}</h4>
 
       <LocationsDisplay></LocationsDisplay>
+
     </div>
 
     <div class="student">
       <h4>Student Reviews</h4>
+        <span class="reviewsTop" v-for="location in currentService.locations" v-bind:key="location">
+        {{location.name}} <br>
+        <ul class="reviewsMiddle">
+          <li v-for="Review in location.reviewList" v-bind:key="Review">
+          {{Review.username}} <br> {{Review.title}} <br> {{Review.content}} <br><br>
+          </li>
+        </ul>
+      </span>
+
       <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
     </div>
 
@@ -76,6 +86,12 @@ export default {
 </script>
 
 <style scoped>
+.reviewsTop{
+  font-size: 24px;
+}
+.reviewsMiddle{
+  font-size: 16px;
+}
 .title{
   display: flex;
   flex-direction: row;

@@ -40,7 +40,7 @@ class User(Document):
 
         return data
 
-class Reviews(Document):
+class Reviews(EmbeddedDocument):
     username = StringField(required=True)
     title = StringField(required=True)
     content = StringField(required=True, max_length=400)
@@ -60,7 +60,7 @@ class Reviews(Document):
 
 class Locations(EmbeddedDocument):
     name = StringField(required=True, unique=True)
-    reviewList = ListField(ReferenceField(Reviews))
+    reviewList = ListField(EmbeddedDocumentField(Reviews, dbref=True))
     def to_public_json(self):
         data = {
             "id": str(self.id),
