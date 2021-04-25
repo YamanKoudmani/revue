@@ -7,7 +7,7 @@
           height=250px;
         />
       </div>
-      <div class="t-obj">
+      <div class="t-oj">
         <img src ="/assets/Knox_oldmain.jpg"
           width=400px;
           height=300px;
@@ -82,8 +82,10 @@ export default {
   justify-content: space-between;
   align-items: stretch;
 }
-.t-obj {
-  flex: 1;
+.t-oj {
+  margin:0px,50px,0;
+  
+
 }
 .SearchPage{
   margin: 0px auto;
