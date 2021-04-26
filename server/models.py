@@ -49,7 +49,7 @@ class Reviews(EmbeddedDocument):
     
     def to_public_json(self):
         data = {
-            "id": str(self.id),
+            #"id": str(self.id),
             "username": self.username,
             "title": self.title,
             "content": self.content,
@@ -63,9 +63,9 @@ class Locations(EmbeddedDocument):
     reviewList = ListField(EmbeddedDocumentField(Reviews, dbref=True))
     def to_public_json(self):
         data = {
-            "id": str(self.id),
+            #"id": str(self.id),
             "name": self.name,
-            "reviewList": self.reviewList,
+            "reviewList": [r.to_public_json() for r in self.reviewList],
         }
         return data
 
@@ -79,7 +79,7 @@ class Services(Document):
             "id": str(self.id),
             "name": self.name,
             "description": self.description,
-            "locations": self.locations,
+            "locations": [f.to_public_json() for f in self.locations],
         }
         return data
 

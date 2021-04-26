@@ -76,6 +76,7 @@ def request_entity_too_large(e):
 
 @app.route("/api/yay")
 def demo():
+    #Dummy reviews:
     review1 = Reviews(username = "tacos", title = "Best food ever", content = "What more is there to say? Best food ever made. Hands down.", rating = 5)
     review2 = Reviews(username = "jacob", title = "Worst meal of my life", content = "Nearly died. Would rate 0 stars if I could.", rating = 1)
     foodReviews = [review1, review2]
