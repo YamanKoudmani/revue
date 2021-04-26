@@ -1,25 +1,32 @@
 <template>
   <div>
-    <div class="title">
-      <div class="t-obj">
+    <div class="row">
+      <div class="photo">
         <img src ="/assets/Knox.jpg"
           width=250px;
           height=250px;
         />
       </div>
-      <div class="t-oj">
+      <div class="photo">
         <img src ="/assets/Knox_oldmain.jpg"
           width=400px;
           height=300px;
         />
       </div>
-      <div class="t-obj">
+      </div>
+      
         <div class="SearchPage">
           <h1>Services</h1> 
-          <SearchBox :items="services" filterby="name" />
         </div>
-      </div>
+        <div class="search">
+           <SearchBox :items="services" filterby="name" />
+           </div>
+        <div class="student">
+      <h4>Student Reviews</h4>
+      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
     </div>
+      
+
 
     <div class="bod">
       <h2> {{currentService.name}}</h2>
@@ -28,10 +35,7 @@
       <LocationsDisplay></LocationsDisplay>
     </div>
 
-    <div class="student">
-      <h4>Student Reviews</h4>
-      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
-    </div>
+    
 
   </div>
 </template>
@@ -76,19 +80,37 @@ export default {
 </script>
 
 <style scoped>
+
+.photo {
+  float: right;
+  width: 50%;
+  padding: 0px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .title{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
 }
-.t-oj {
+.knox {
+  margin:0px,0px,0;
+  
+
+}
+.oldmain {
   margin:0px,50px,0;
   
 
 }
 .SearchPage{
-  margin: 0px auto;
+  margin: 0px 700px;
   margin-top:0px;
   width: 800px;
   text-align: left;
@@ -115,11 +137,12 @@ export default {
   color:darkslategrey;
 }
 .student{
-    margin: 200px 10px 0;
+    margin: 600px 0px 0;
   font-size: 35px;
   font-weight: bold;
   text-align: left;
   color:darkslategrey;
+ 
 }
 
 </style>
