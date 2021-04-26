@@ -40,7 +40,8 @@ export default {
     itemClicked(index) {
       this.selected = index;
       this.$router.push({ name: "service" });
-      console.log(this.matches[index]);
+      this.$store.dispatch('setServiceState', this.matches[index])
+      //console.log(this.matches[index]);
     },
     selectItem() {
       this.selectedItem = this.matches[this.selected];

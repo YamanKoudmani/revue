@@ -44,21 +44,21 @@ class Reviews(Document):
     username = StringField(required=True)
     title = StringField(required=True)
     content = StringField(required=True, max_length=400)
-    ratings = ListField(IntField(), required=True)
+    rating = IntField()
     created = DateTimeField(required=True, default=datetime.datetime.now())
     
     def to_public_json(self):
         data = {
             "id": str(self.id),
             "username": self.username,
-            "title": title,
-            "content": content,
-            "ratings": ratings,
+            "title": self.title,
+            "content": self.content,
+            "rating": self.rating,
             "created": self.created,
         }
         return data
 
-class Locations(Document):
+class Locations(EmbeddedDocument):
     name = StringField(required=True, unique=True)
     reviewList = ListField(ReferenceField(Reviews))
     def to_public_json(self):
@@ -72,14 +72,14 @@ class Locations(Document):
 class Services(Document):
     name = StringField(required=True, unique=True)
     description = StringField(required=True)
-    locations = SortedListField(ReferenceField(Locations), required=True)
+    locations = ListField(EmbeddedDocumentField(Locations, dbref=True), required=True)
     
     def to_public_json(self):
         data = {
             "id": str(self.id),
             "name": self.name,
-            "description": description,
-            "locations": locations,
+            "description": self.description,
+            "locations": self.locations,
         }
         return data
 

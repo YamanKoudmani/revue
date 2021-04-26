@@ -6,8 +6,6 @@
 
     
     <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
-
-\
     <router-link class="services" :to="{ name: 'service' }">Service</router-link>
    <router-link class="Searchpage" :to="{ name: 'Search-Page' }">SearchPage</router-link>
      
