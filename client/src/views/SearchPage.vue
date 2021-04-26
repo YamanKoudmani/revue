@@ -2,12 +2,14 @@
     <div class="SearchPage">
         <h1>Knox Rate-A-Service</h1>
         <SearchBox :items="services" filterby="name" />
+
     </div>
 </template>
 
 <script>
 import SearchBox from '@/components/SearchBox'
 import ServicesService from '@/services/ServicesService'
+
 //import services from '@/assets/services.js'
 export default {
     name: 'Search-Page',
@@ -17,7 +19,7 @@ export default {
         };
     },
     components: { 
-        SearchBox
+      SearchBox
     },
     mounted(){
        this.fetchData()

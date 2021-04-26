@@ -10,7 +10,8 @@ def listServices():
 @app.route("/api/services/<string:servicename>")
 def getService(servicename: str) -> str:
     service = Services.objects(name=servicename).first()
+    print(service)
     if service:
-        return jsonify(service.to_public_json())
+        return service.to_json()
     else:
         return jsonify({"error": "Service not found"}), 404
