@@ -43,6 +43,8 @@ class User(Document):
 class Reviews(EmbeddedDocument):
     username = StringField(required=True)
     title = StringField(required=True)
+    service = StringField(required=True)
+    location = StringField(required=True)
     content = StringField(required=True, max_length=400)
     rating = IntField()
     created = DateTimeField(required=True, default=datetime.datetime.now())
@@ -52,6 +54,8 @@ class Reviews(EmbeddedDocument):
             #"id": str(self.id),
             "username": self.username,
             "title": self.title,
+            "service": self.service,
+            "location": self.location,
             "content": self.content,
             "rating": self.rating,
             "created": self.created,

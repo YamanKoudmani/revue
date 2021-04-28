@@ -2,97 +2,101 @@
   <div>
     <div class="title">
       <div class="t-obj">
-        <img src ="/assets/Knox.jpg"
-          width=250px;
-          height=250px;
-        />
+        <img src="/assets/Knox.jpg" width="250px;" height="250px;" />
       </div>
       <div class="t-obj">
-        <img src ="/assets/Knox_oldmain.jpg"
-          width=400px;
-          height=300px;
-        />
+        <img src="/assets/Knox_oldmain.jpg" width="400px;" height="300px;" />
       </div>
       <div class="t-obj">
         <div class="SearchPage">
-          <h1>Services</h1> 
+          <h1>Services</h1>
           <SearchBox :items="services" filterby="name" />
         </div>
       </div>
     </div>
 
     <div class="bod">
-      <h2> {{currentService.name}}</h2>
-      <h4> {{currentService.description}}</h4>
+      <h2>{{ currentService.name }}</h2>
+      <h4>{{ currentService.description }}</h4>
 
       <LocationsDisplay></LocationsDisplay>
-
     </div>
 
     <div class="student">
       <h4>Student Reviews</h4>
-        <span class="reviewsTop" v-for="location in currentService.locations" v-bind:key="location">
-        {{location.name}} <br>
+      <span
+        class="reviewsTop"
+        v-for="location in currentService.locations"
+        v-bind:key="location"
+      >
+        {{ location.name }} <br />
         <ul class="reviewsMiddle">
           <li v-for="Review in location.reviewList" v-bind:key="Review">
-          {{Review.username}} <br> {{Review.title}} <br> {{Review.content}} <br><br>
+            {{ Review.username }} <br />
+            {{ Review.title }} <br />
+            {{ Review.content }} <br /><br />
           </li>
         </ul>
       </span>
 
-      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
+      <input
+        type="button"
+        value="Add Reviews"
+        style="float: right; font-size:30px; ,margin:0 0 0;"
+        @click="$router.push({ name: 'create_review' })"
+      />
     </div>
-
   </div>
 </template>
 
 <script>
-import SearchBox from '@/components/SearchBox'
-import ServicesService from '@/services/ServicesService'
-import LocationsDisplay from '@/components/LocationsDisplay'
-import store from '@/store/index'
+import SearchBox from "@/components/SearchBox";
+import ServicesService from "@/services/ServicesService";
+import LocationsDisplay from "@/components/LocationsDisplay";
+import store from "@/store/index";
 export default {
-  name: 'Service',
-      components: { 
-        SearchBox, LocationsDisplay
+  name: "Service",
+  components: {
+    SearchBox,
+    LocationsDisplay,
+  },
+  data() {
+    return {
+      services: [],
+      currentService: [],
+    };
+  },
+  mounted() {
+    this.services = this.fetchData();
+    this.currentService = store.state.selectedService;
+  },
+  watch: {
+    $route() {
+      this.fetchData();
     },
-    data(){
-        return {
-        services: [],
-        currentService: []
-      };
+  },
+  methods: {
+    fetchData() {
+      ServicesService.list()
+        .then((response) => {
+          this.services = response.data;
+        })
+        .catch((e) => {
+          this.error = e.response.data;
+        });
     },
-    mounted(){
-        this.services = this.fetchData()
-        this.currentService = store.state.selectedService;
-    },
-    watch: {
-      $route() {
-          this.fetchData()
-      }
-    },
-    methods: {
-      fetchData() {
-        ServicesService.list()
-          .then(response => {
-            this.services = response.data
-          })
-          .catch(e => {
-            this.error = e.response.data
-          })
-      },
-    },
-}
+  },
+};
 </script>
 
 <style scoped>
-.reviewsTop{
+.reviewsTop {
   font-size: 24px;
 }
-.reviewsMiddle{
+.reviewsMiddle {
   font-size: 16px;
 }
-.title{
+.title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -101,39 +105,38 @@ export default {
 .t-obj {
   flex: 1;
 }
-.SearchPage{
+.SearchPage {
   margin: 0px auto;
-  margin-top:0px;
+  margin-top: 0px;
   width: 800px;
   text-align: left;
   font-size: 45px;
 }
-.search{
-  margin:0px 500px;
-  margin-top:250px;
+.search {
+  margin: 0px 500px;
+  margin-top: 250px;
   width: 640px;
 }
-.bod{
+.bod {
   margin: 400px 10px 0;
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
 
-.locate{
-    margin: 125px 10px 0;
+.locate {
+  margin: 125px 10px 0;
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
-.student{
-    margin: 200px 10px 0;
+.student {
+  margin: 200px 10px 0;
   font-size: 35px;
   font-weight: bold;
   text-align: left;
-  color:darkslategrey;
+  color: darkslategrey;
 }
-
 </style>
