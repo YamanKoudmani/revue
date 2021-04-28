@@ -43,6 +43,8 @@ class User(Document):
 class Reviews(Document):
     username = StringField(required=True)
     title = StringField(required=True)
+    service = StringField(required=True)
+    location = StringField(required=True)
     content = StringField(required=True, max_length=400)
     rating = IntField()
     created = DateTimeField(required=True, default=datetime.datetime.now())
@@ -52,6 +54,8 @@ class Reviews(Document):
             "id": str(self.id),
             "username": self.username,
             "title": self.title,
+            "service": self.service,
+            "location": self.location,
             "content": self.content,
             "rating": self.rating,
             "created": self.created,
@@ -63,7 +67,6 @@ class Locations(EmbeddedDocument):
     reviewList = ListField(ReferenceField(Reviews))
     def to_public_json(self):
         data = {
-            "id": str(self.id),
             "name": self.name,
             "reviewList": self.reviewList,
         }
@@ -79,7 +82,7 @@ class Services(Document):
             "id": str(self.id),
             "name": self.name,
             "description": self.description,
-            "locations": self.locations,
+            "locations": [f.to_public_json() for f in self.locations],
         }
         return data
 
