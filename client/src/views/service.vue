@@ -1,70 +1,54 @@
 <template>
-    <div>
-    <div class="float">
-    <div class="knox"><img src ="/assets/Knox.jpg"
-    width=250px;
-    height=250px;
-    align=right;
-    />
+  <div>
+    <div class="row">
+      <div class="photo">
+        <img src ="/assets/Knox.jpg"
+          width=250px;
+          height=250px;
+        />
+      </div>
+      <div class="photo">
+        <img src ="/assets/Knox_oldmain.jpg"
+          width=400px;
+          height=300px;
+        />
+      </div>
+      </div>
+      
+        <div class="SearchPage">
+          <h1>Services</h1> 
+        </div>
+        <div class="search">
+           <SearchBox :items="services" filterby="name" />
+           </div>
+        <div class="student">
+      <h4>Student Reviews</h4>
+      <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
     </div>
+      
 
-    <div class="container">
-   <div class="photo"><img src ="/assets/Knox_oldmain.jpg"
-    width=400px;
-    height=300px;
-    align=left; />
-    </div>
-    
-    </div>
-
-
-  <div class="container">
-      <div class="SearchPage">
-        <h1>Services</h1>
-        
-    </div>
-    
-    </div>
-
-    </div>
-<div class="search">
-<SearchBox :items="services" filterby="name" />
-    </div>
 
     <div class="bod">
-      
-    <h2> {{currentService.name}} </h2>
-    <li class="locList" v-for="location in currentService.locations" v-bind:key="location">{{location}}</li>
+      <h2> {{currentService.name}}</h2>
+      <h4> {{currentService.description}}</h4>
 
+      <LocationsDisplay></LocationsDisplay>
     </div>
 
+    
 
-    <div class="locate">
-    <h3>Location Ratings:</h3>
-    <Rating value="3"></Rating>
-    </div>
-
-    <div class="student">
-    <h4>Student Reviews</h4>
-    <input type="button" value="Add Reviews" style="float: right; font-size:30px; ,margin:0 0 0;">
-    </div>
-  
-  
-    </div>
+  </div>
 </template>
 
-
-
 <script>
-import Rating from '@/components/Rating'
 import SearchBox from '@/components/SearchBox'
-import store from '@/store/index'
 import ServicesService from '@/services/ServicesService'
-
+import LocationsDisplay from '@/components/LocationsDisplay'
+import store from '@/store/index'
 export default {
   name: 'Service',
       components: { 
-        SearchBox,Rating
+        SearchBox, LocationsDisplay
     },
     data(){
         return {
@@ -73,16 +57,14 @@ export default {
       };
     },
     mounted(){
+        this.services = this.fetchData()
         this.currentService = store.state.selectedService;
-        this.fetchData()
-        console.log(this.currentService);
     },
     watch: {
       $route() {
           this.fetchData()
       }
     },
-
     methods: {
       fetchData() {
         ServicesService.list()
@@ -95,52 +77,51 @@ export default {
       },
     },
 }
-
-
-
-
-
-
 </script>
 
-
-
-
 <style scoped>
-.float{
 
-padding:10px;
-
-}
- .container{
-   margin:0px,50px,0;
-   width: 40%;
-    float: left;
-    padding: 20px;  
-}
-
-.knox{
-   margin:0px,0px,0;
-   width: 250px;
-   height: 0%;
+.photo {
   float: right;
-      
+  width: 50%;
+  padding: 0px;
 }
 
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.knox {
+  margin:0px,0px,0;
+  
+
+}
+.oldmain {
+  margin:0px,50px,0;
+  
+
+}
 .SearchPage{
-  margin: 0px auto;
+  margin: 0px 700px;
   margin-top:0px;
   width: 800px;
   text-align: left;
   font-size: 45px;
 }
 .search{
-  margin:0px 500px;
-  margin-top:250px;
-  width: 640px;
+  margin:0px 550px;
+  margin-top:315px;
+  width: 600px;
 }
 .bod{
-  
   margin: 400px 10px 0;
   font-size: 30px;
   font-weight: bold;
@@ -156,11 +137,12 @@ padding:10px;
   color:darkslategrey;
 }
 .student{
-    margin: 200px 10px 0;
+    margin: 600px 0px 0;
   font-size: 35px;
   font-weight: bold;
   text-align: left;
   color:darkslategrey;
+ 
 }
 
 </style>

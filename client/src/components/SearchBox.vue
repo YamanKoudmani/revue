@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import ServicesService from '@/services/ServicesService'
 export default {
   name: "SearchBox",
   props: ["items", "filterby"],
@@ -31,6 +32,7 @@ export default {
       selectedItem: null,
       query: "",
       visible: true,
+      temp: []
     };
   },
   methods: {
@@ -38,15 +40,24 @@ export default {
       this.visible = !this.visible;
     },
     itemClicked(index) {
+      this.getServiceDetails(index)
       this.selected = index;
-      this.$router.push({ name: "service" });
-      this.$store.dispatch('setServiceState', this.matches[index])
       //console.log(this.matches[index]);
     },
     selectItem() {
       this.selectedItem = this.matches[this.selected];
       this.visible = false;
     },
+    getServiceDetails(index){
+      var serviceName = String(this.matches[index].name);
+
+      ServicesService.getService(serviceName).then(response => {
+        this.$store.dispatch('setServiceState', response.data);
+        this.$router.push({ name: "service" });
+        }).catch(e => {
+        this.error = e.response.data
+      })
+    }
   },
   computed: {
     matches() {

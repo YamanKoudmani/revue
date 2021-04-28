@@ -76,8 +76,12 @@ def request_entity_too_large(e):
 
 @app.route("/api/yay")
 def demo():
+    #Dummy reviews:
+    review1 = Reviews(username = "tacos", title = "Best food ever", content = "What more is there to say? Best food ever made. Hands down.", rating = 5)
+    review2 = Reviews(username = "jacob", title = "Worst meal of my life", content = "Nearly died. Would rate 0 stars if I could.", rating = 1)
+    foodReviews = [review1, review2]
     #Food Locations
-    Cafe = Locations(name = "Hard Knox Cafe", reviewList = None)
+    Cafe = Locations(name = "Hard Knox Cafe", reviewList = foodReviews)
     Gizmo = Locations(name = "Gizmo", reviewList = None)
     GrabnGo = Locations(name = "Grab n Go", reviewList = None)
     Outpost = Locations(name = "Outpost Express (C-Store)", reviewList = None)
@@ -153,7 +157,7 @@ def demo():
 
 
     return jsonify({
-        "error": "The code completed successfully (and that's a bad thing)"
+        "Congrats": "The code completed successfully (and that's a bad thing)"
     }), 500
 
 if __name__ == "__main__":
