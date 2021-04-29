@@ -2,7 +2,7 @@
     <div class="list">
       <ul class="locList">
         <li  v-for="location in currentService.locations" v-bind:key="location">
-          {{location.name}} <Rating class="rating" :value="avgRating"></Rating>
+          {{location.name}} <Rating class="rating" :value=avgRating(location)></Rating>
         </li>
       </ul>
     </div>
@@ -19,19 +19,29 @@ export default {
    */
   data: function() {
     return {
-      currentService: []
+      currentService: [],
+      addedRatings: 0,
     };
   },
   mounted(){
     this.currentService = store.state.selectedService;
     console.log(this.currentService);
   },
-  computed: {
-    avgRating: function(){
-      var rand = Math.floor((Math.random() *5) + 1);
-      console.log(rand);
-      return rand;
-    }
+  methods: {
+    avgRating(locationL){
+      var y;
+      this.addedRatings = 0;
+        var temp = locationL;
+        for (y = 0; y < temp.reviewList.length; y++){
+          this.addedRatings += temp.reviewList[y].rating;
+        }
+      if (temp.reviewList.length > 0){
+      return this.addedRatings / temp.reviewList.length;
+      }
+      else {
+        return 0;
+      }
+    },
   }
 }
 </script>
