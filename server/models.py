@@ -4,7 +4,7 @@ import os
 
 from mongoengine import (
     connect, Document, BooleanField, EmailField, StringField, ListField, ReferenceField, DateTimeField, EmbeddedDocument, IntField, SortedListField,
-    EmbeddedDocumentField, CASCADE
+    EmbeddedDocumentField, EmbeddedDocumentListField, CASCADE
 )
 
 # GUIDE: Here we are connecting to the mongodb database. os.environ.get is getting environment variables
@@ -64,7 +64,7 @@ class Reviews(EmbeddedDocument):
 
 class Locations(EmbeddedDocument):
     name = StringField(required=True, unique=True)
-    reviewList = ListField(EmbeddedDocumentField(Reviews, dbref=True))
+    reviewList = EmbeddedDocumentListField(Reviews, dbref=True)
     def to_public_json(self):
         data = {
             #"id": str(self.id),
@@ -76,7 +76,7 @@ class Locations(EmbeddedDocument):
 class Services(Document):
     name = StringField(required=True, unique=True)
     description = StringField(required=True)
-    locations = ListField(EmbeddedDocumentField(Locations, dbref=True), required=True)
+    locations = EmbeddedDocumentListField(Locations, dbref=True, required=True)
     
     def to_public_json(self):
         data = {
