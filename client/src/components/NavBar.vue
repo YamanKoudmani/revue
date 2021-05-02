@@ -5,22 +5,8 @@
    
 
     
-    <router-link class="title" :to="{ name: 'Home', params: {} }">ReVue</router-link>
-    <router-link class="services" :to="{ name: 'service' }">Service</router-link>
-   <router-link class="Searchpage" :to="{ name: 'Search-Page' }">SearchPage</router-link>
+    <router-link class="title" :to="{ name: 'Search-Page' }">Search Page</router-link>
      
-    <div class="dropdown">
-    
-      <button class="dropbtn">Subvues</button>
-      <div class="dropdown-content">
-        <router-link
-          v-for="subvue in $store.state.subscribedSubvues"
-          :key="subvue.permalink"
-          :to="{ name: 'Subvue', params: {name: subvue.permalink} }"
-          >{{ subvue.name }}</router-link>
-        <router-link class="create-subvue" :to="{ name: 'CreateSubvue' }">Create a Subvue</router-link>
-      </div>
-    </div>
 
     <router-link v-if="!$store.state.isUserLoggedIn" style="float:right" :to="{ name: 'SignUp', params: {} }">Sign Up</router-link>
     <router-link v-if="!$store.state.isUserLoggedIn" style="float:right" :to="{ name: 'Login', params: {} }">Login</router-link>
