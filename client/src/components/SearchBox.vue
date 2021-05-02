@@ -98,6 +98,7 @@ export default {
 }
 .popover {
   min-height: 50px;
+  min-width: 100%;
   
   border: 2px solid lightgray;
   position: absolute;

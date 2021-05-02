@@ -106,10 +106,12 @@ export default {
   text-align: center;
 }
 .searchbox {
-  margin-left: 400px;
-  margin-top: 90px;
+
+
   width: 900px;
-  
+  margin: auto;
+  width: 50%;
+ 
 }
 
 .bod {
