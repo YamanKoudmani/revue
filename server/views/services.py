@@ -48,6 +48,9 @@ def reviews_added(username: str):
         content=validated["content"],
         service=validated["service"],
         username=username,
-    ).save()
-
-    return jsonify(review.to_public_json())
+    )
+    service = Services.objects(locations__name = review.location).first()
+    location = service.locations.get(name = review.location)
+    location.reviewList.append(review)
+    service.save()
+    return {"message": "ok"}

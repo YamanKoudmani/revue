@@ -41,7 +41,7 @@
         <ul class="reviewsMiddle">
           <li v-for="Review in location.reviewList" v-bind:key="Review">
             {{ Review.username }} <br />
-            {{ Review.title }} <br />
+            {{ Review.title }} <Rating :value=Review.rating></Rating> <br />
             {{ Review.content }} <br /><br />
           </li>
         </ul>
@@ -56,12 +56,14 @@
 import SearchBox from "@/components/SearchBox";
 import ServicesService from "@/services/ServicesService";
 import LocationsDisplay from "@/components/LocationsDisplay";
+import Rating from "@/components/Rating";
 import store from "@/store/index";
 export default {
   name: "Service",
   components: {
     SearchBox,
     LocationsDisplay,
+    Rating,
   },
   data() {
     return {
