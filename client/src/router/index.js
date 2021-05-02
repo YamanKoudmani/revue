@@ -63,6 +63,16 @@ const routes = [
     component: () =>
       import(/*webpackChunkName: "Confirmation" */ "@/views/Confirmation"),
   },
+  {
+    path: "/Dropdown",
+    name: "DropDown",
+    component: () => import("@/components/ReviewDropdown"),
+  },
+  {
+    path: "/addreview",
+    name: "create_review",
+    component: () => import("@/views/CreateReview"),
+  },
 ];
 
 const router = createRouter({

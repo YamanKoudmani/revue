@@ -75,6 +75,7 @@ export default {
 <style scoped>
 .autocomplete {
   width: 100%;
+  
   position: relative;
 }
 .close {
@@ -97,6 +98,7 @@ export default {
 }
 .popover {
   min-height: 50px;
+  
   border: 2px solid lightgray;
   position: absolute;
   left: 0;
