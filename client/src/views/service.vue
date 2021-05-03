@@ -16,6 +16,7 @@
           <SearchBox :items="services" filterby="name" />
           </div>
     <div class="bod">
+      
       <h2>{{ currentService.name }}</h2>
       <h4>{{ currentService.description }}</h4>
 
@@ -95,12 +96,7 @@ export default {
 </script>
 
 <style scoped>
-.reviewsTop {
-  font-size: 24px;
-}
-.reviewsMiddle {
-  font-size: 16px;
-}
+
 
 
 .col-sm{
@@ -110,10 +106,12 @@ export default {
   text-align: center;
 }
 .searchbox {
-  margin: 80px 400px;
-  margin-top: 90px;
+
+
   width: 900px;
-  
+  margin: auto;
+  width: 50%;
+ 
 }
 
 .bod {
@@ -155,7 +153,7 @@ h5{
 }
 .container{
   
-background-color:p;
+background-color:rosybrown;
 background-image: url('/assets/o.jpg');
 background-size:1900px 1150px ;
 background-repeat: no-repeat;
