@@ -2,13 +2,13 @@
   <div class="container">  
   <div class="row">
     <div class="col-sm">
-      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" >
+      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" style="position:absolute; left:0px;" >
     </div>
     <div class="col-sm">
       <p>Services</p>
     </div>
     <div class="col-sm">
-      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " />
+      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " style="position:absolute; right:0px"/>
     </div>
   </div>
 
@@ -104,17 +104,17 @@ export default {
   font-weight: bold;
   color:white;
   text-align: center;
+  
+  
 }
 .searchbox {
-
-
   width: 900px;
   margin: auto;
   width: 50%;
- 
 }
 
 .bod {
+ 
   margin: 150px 30px 0;
   font-size: 30px;
   font-weight: bold;
