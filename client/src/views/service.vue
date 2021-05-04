@@ -1,27 +1,22 @@
 <template>
-  <div class="container">
-    <div class="title">
-      <div class="t-obj">
-        <div class="image1">
-        <img src="/assets/Knox.jpg" width="250px;" height="250px;" />
-        </div>
-      </div>
-      <div class="t-obj">
-        <div class="SearchPage">
-          <h1>Services</h1>
-        </div>
-        <div class="image">
-        <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " />
-        </div>
-      
-        </div>
-        
-      
+  <div class="container">  
+  <div class="row">
+    <div class="col-sm">
+      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" >
     </div>
+    <div class="col-sm">
+      <p>Services</p>
+    </div>
+    <div class="col-sm">
+      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " />
+    </div>
+  </div>
+
 <div class="searchbox">
           <SearchBox :items="services" filterby="name" />
           </div>
     <div class="bod">
+      
       <h2>{{ currentService.name }}</h2>
       <h4>{{ currentService.description }}</h4>
 
@@ -101,53 +96,24 @@ export default {
 </script>
 
 <style scoped>
-.reviewsTop {
-  font-size: 24px;
-}
-.reviewsMiddle {
-  font-size: 16px;
-}
-.title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-}
-.t-obj {
-  flex: 1;
-}
 
-.image {
-  margin: -318px 1220px;
-  
- 
-}.image1 {
-  margin: -10px -20px;
-  
- 
-}
 
-.SearchPage {
-  margin: 0px 450px;
-  margin-top: 0px;
-  width: 800px;
-  text-align: left;
-  font-size: 45px;
+
+.col-sm{
+  font-size: 120px;
+  font-weight: bold;
+  color:white;
+  text-align: center;
 }
 .searchbox {
-  margin: 20px 400px;
-  margin-top: 60px;
+
+
   width: 900px;
-  
-  
-  
+  margin: auto;
+  width: 50%;
+ 
 }
-.search {
-  margin: 0px 500px;
-  margin-top: 250px;
-  width: 640px;
-  
-}
+
 .bod {
   margin: 150px 30px 0;
   font-size: 30px;
@@ -171,12 +137,9 @@ export default {
   text-align: left;
   color: darkslategrey;
   color:white;
+  background-color:black;
 }
-h1{
-color:white;
-font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-size: 120px;
-}
+
 h2{
   color:white;
 }
@@ -189,16 +152,13 @@ h5{
   font-weight: bold;
 }
 .container{
-  background-color:black;
   
+background-color:rosybrown;
 background-image: url('/assets/o.jpg');
 background-size:1900px 1150px ;
 background-repeat: no-repeat;
-
-
-  
- 
-
+min-width:100%;
+min-height: 100%;
 }
 input[type=button]{
   display: inline-block;
