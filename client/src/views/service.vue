@@ -148,7 +148,7 @@ h5 {
 }
 .container {
   background-color: rosybrown;
-  background-image: url("@/assets/o.jpg");
+  background-image: url("~@/assets/o.jpg");
   background-size: 1900px 1150px;
   background-repeat: no-repeat;
   min-width: 100%;
