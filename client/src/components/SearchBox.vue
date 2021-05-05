@@ -87,13 +87,8 @@ export default {
 
 <style scoped>
 .autocomplete {
-<<<<<<< HEAD
   width: 90%;
   
-=======
-  width: 100%;
-
->>>>>>> b533976b1ee1a7b96f792e41bcff1661e5f21ce8
   position: relative;
 }
 .close {
