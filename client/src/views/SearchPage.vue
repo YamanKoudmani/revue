@@ -27,7 +27,11 @@ export default {
     watch: {
         $route() {
             this.fetchData()
-        }
+            this.$router.push({ name: "service" });
+            
+            location.reload(false);
+}
+        
     },
     methods: {
     fetchData() {

@@ -1,19 +1,20 @@
 <template>
   <div class="container">  
   <div class="row">
-    <div class="col-sm">
-      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" style="position:absolute; left:0px;" >
+    <div class="col-s">
+      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" >
     </div>
     <div class="col-sm">
       <p>Services</p>
     </div>
-    <div class="col-sm">
-      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " style="position:absolute; right:0px"/>
+    <div class="col-ss">
+      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; "/>
     </div>
   </div>
 
 <div class="searchbox">
-          <SearchBox :items="services" filterby="name" />
+          <SearchBox :items="services" filterby="name"  />
+          
           </div>
     <div class="bod">
       
@@ -67,25 +68,35 @@ export default {
     Rating,
   },
   data() {
+    
     return {
       services: [],
       currentService: [],
+      
     };
   },
   mounted() {
     this.services = this.fetchData();
     this.currentService = store.state.selectedService;
+    
+    
   },
   watch: {
+    
     $route() {
       this.fetchData();
+      
     },
+    
   },
   methods: {
     fetchData() {
+      
       ServicesService.list()
         .then((response) => {
           this.services = response.data;
+          
+          
         })
         .catch((e) => {
           this.error = e.response.data;
@@ -93,6 +104,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
@@ -107,8 +119,20 @@ export default {
   
   
 }
+
+@media screen and( max-width :500px){
+  div.colm-ss{
+    display:none;
+  }
+}
+
+@media screen and( max-width :700px){
+  div.colm-s{
+    display:none;
+  }
+}
 .searchbox {
-  width: 900px;
+  
   margin: auto;
   width: 50%;
 }
@@ -154,7 +178,7 @@ h5{
 .container{
   
 background-color:rosybrown;
-background-image: url('/assets/o.jpg');
+background-image: url('~@/assets/o.jpg');
 background-size:1900px 1150px ;
 background-repeat: no-repeat;
 min-width:100%;
