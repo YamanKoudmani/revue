@@ -47,16 +47,24 @@ export default {
     selectItem() {
       this.selectedItem = this.matches[this.selected];
       this.visible = false;
+      
     },
     getServiceDetails(index){
       var serviceName = String(this.matches[index].name);
 
       ServicesService.getService(serviceName).then(response => {
         this.$store.dispatch('setServiceState', response.data);
+        
         this.$router.push({ name: "service" });
+        
+        location.reload();
+
+        
+        
         }).catch(e => {
         this.error = e.response.data
       })
+      
     }
   },
   computed: {
@@ -74,7 +82,7 @@ export default {
 
 <style scoped>
 .autocomplete {
-  width: 100%;
+  width: 90%;
   
   position: relative;
 }
