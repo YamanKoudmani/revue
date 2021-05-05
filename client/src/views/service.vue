@@ -2,18 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <img
-          src="@/assets/Knox.jpg"
-          class="rounded float-left"
-          width="300px;"
-          height="300px;"
-        />
+        <img src="@/assets/Knox.jpg" class="rounded-float-left" />
       </div>
       <div class="col-sm">
         <p>Services</p>
       </div>
       <div class="col-sm">
-        <img src="@/assets/Knox_oldmain.jpg" width="450px;" height="300px; " />
+        <img class="knox-oldmain" src="@/assets/Knox_oldmain.jpg" />
       </div>
     </div>
 
@@ -153,6 +148,14 @@ h5 {
   background-repeat: no-repeat;
   min-width: 100%;
   min-height: 100%;
+}
+.rounded-float-left {
+  width: 300px;
+  height: 300px;
+}
+.knox-oldmain {
+  width: 450px;
+  height: 300px;
 }
 input[type="button"] {
   display: inline-block;
