@@ -2,6 +2,7 @@
   <div class="autocomplete">
     <div class="popover" v-show="visible">
       <input
+        @submit.prevent
         type="text"
         v-model="query"
         placeholder="Search for a service..."
