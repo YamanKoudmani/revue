@@ -12,7 +12,7 @@
             v-for="(match, index) in matches"
             :key="match[filterby]"
             :class="{ selected: selected == index }"
-            @click="itemClicked(index)"
+            @click="itemClicked(index, $event)"
             v-text="match[filterby]"
           ></li>
         </ul>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ServicesService from '@/services/ServicesService'
+import ServicesService from "@/services/ServicesService";
 export default {
   name: "SearchBox",
   props: ["items", "filterby"],
@@ -32,32 +32,38 @@ export default {
       selectedItem: null,
       query: "",
       visible: true,
-      temp: []
+      temp: [],
     };
   },
   methods: {
     toggleVisible() {
       this.visible = !this.visible;
     },
-    itemClicked(index) {
-      this.getServiceDetails(index)
+    itemClicked(index, event) {
+      this.getServiceDetails(index);
       this.selected = index;
+      if (event) {
+        event.preventDefault();
+        alert("prevent event");
+      }
       //console.log(this.matches[index]);
     },
     selectItem() {
       this.selectedItem = this.matches[this.selected];
       this.visible = false;
     },
-    getServiceDetails(index){
+    getServiceDetails(index) {
       var serviceName = String(this.matches[index].name);
 
-      ServicesService.getService(serviceName).then(response => {
-        this.$store.dispatch('setServiceState', response.data);
-        this.$router.push({ name: "service" });
-        }).catch(e => {
-        this.error = e.response.data
-      })
-    }
+      ServicesService.getService(serviceName)
+        .then((response) => {
+          this.$store.dispatch("setServiceState", response.data);
+          this.$router.push({ name: "service" });
+        })
+        .catch((e) => {
+          this.error = e.response.data;
+        });
+    },
   },
   computed: {
     matches() {
@@ -75,7 +81,7 @@ export default {
 <style scoped>
 .autocomplete {
   width: 100%;
-  
+
   position: relative;
 }
 .close {
@@ -99,7 +105,7 @@ export default {
 .popover {
   min-height: 50px;
   min-width: 100%;
-  
+
   border: 2px solid lightgray;
   position: absolute;
   left: 0;
