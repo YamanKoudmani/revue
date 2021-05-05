@@ -1,23 +1,21 @@
 <template>
-  <div class="container">  
-  <div class="row">
-    <div class="col-s">
-      <img src="/assets/Knox.jpg" class="rounded float-left" width="300px;" height="300px;" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <img src="@/assets/Knox.jpg" class="rounded-float-left" />
+      </div>
+      <div class="col-sm">
+        <p>Services</p>
+      </div>
+      <div class="col-sm">
+        <img class="knox-oldmain" src="@/assets/Knox_oldmain.jpg" />
+      </div>
     </div>
-    <div class="col-sm">
-      <p>Services</p>
-    </div>
-    <div class="col-ss">
-      <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; "/>
-    </div>
-  </div>
 
-<div class="searchbox">
-          <SearchBox :items="services" filterby="name"  />
-          
-          </div>
+    <div class="searchbox">
+      <SearchBox :items="services" filterby="name" />
+    </div>
     <div class="bod">
-      
       <h2>{{ currentService.name }}</h2>
       <h4>{{ currentService.description }}</h4>
 
@@ -26,8 +24,7 @@
 
     <div class="student">
       <h5>Student Reviews</h5>
-      
-      
+
       <input
         type="button"
         value="Add Reviews"
@@ -43,13 +40,11 @@
         <ul class="reviewsMiddle">
           <li v-for="Review in location.reviewList" v-bind:key="Review">
             {{ Review.username }} <br />
-            {{ Review.title }} <Rating :value=Review.rating></Rating> <br />
+            {{ Review.title }} <Rating :value="Review.rating"></Rating> <br />
             {{ Review.content }} <br /><br />
           </li>
         </ul>
       </span>
-
-      
     </div>
   </div>
 </template>
@@ -108,31 +103,16 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-.col-sm{
+.col-sm {
   font-size: 120px;
   font-weight: bold;
-  color:white;
+  color: white;
   text-align: center;
   
   
 }
-
-@media screen and( max-width :500px){
-  div.colm-ss{
-    display:none;
-  }
-}
-
-@media screen and( max-width :700px){
-  div.colm-s{
-    display:none;
-  }
-}
 .searchbox {
-  
+  width: 900px;
   margin: auto;
   width: 50%;
 }
@@ -144,7 +124,7 @@ export default {
   font-weight: bold;
   text-align: left;
   color: darkslategrey;
-  color:white;
+  color: white;
 }
 
 .locate {
@@ -160,46 +140,49 @@ export default {
   font-weight: bold;
   text-align: left;
   color: darkslategrey;
-  color:white;
-  background-color:black;
+  color: white;
+  background-color: black;
 }
 
-h2{
-  color:white;
+h2 {
+  color: white;
 }
-.h4{
-  color:white;
+.h4 {
+  color: white;
 }
-h5{
-  color:white;
+h5 {
+  color: white;
   font-size: 40px;
   font-weight: bold;
 }
-.container{
-  
-background-color:rosybrown;
-background-image: url('~@/assets/o.jpg');
-background-size:1900px 1150px ;
-background-repeat: no-repeat;
-min-width:100%;
-min-height: 100%;
+.container {
+  background-color: rosybrown;
+  background-image: url("~@/assets/o.jpg");
+  background-size: 1900px 1150px;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
 }
-input[type=button]{
+.rounded-float-left {
+  width: 300px;
+  height: 300px;
+}
+.knox-oldmain {
+  width: 450px;
+  height: 300px;
+}
+input[type="button"] {
   display: inline-block;
-  background: linear-gradient(45deg, #87adfe,#ff77cd);
-  border-radius:100px;
-  padding:10px 20px;
+  background: linear-gradient(45deg, #87adfe, #ff77cd);
+  border-radius: 100px;
+  padding: 10px 20px;
   box-sizing: border-box;
-  text-decoration:seashell;
+  text-decoration: seashell;
   color: #fff;
-  box-shadow: 3px 8px 22px rgba(94,28,68,0.15);
-   text-shadow: 0 1px 1px rgba(207, 35, 35, 0.2);
-
+  box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
+  text-shadow: 0 1px 1px rgba(207, 35, 35, 0.2);
 }
-input[type=button]:hover{
-  background:turquoise;
-  
+input[type="button"]:hover {
+  background: turquoise;
 }
-
-
 </style>

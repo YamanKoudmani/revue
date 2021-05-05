@@ -45,9 +45,13 @@ export default {
       reviewData.append("rating", parseInt(this.rating));
       console.log(this.title, this.location, this.content, this.rating);
 
-      ServicesService.create(reviewData).catch((error) => {
-        alert(error.response.data.error);
-      });
+      ServicesService.create(reviewData)
+      .then(
+        this.$router.push({ name: 'service' })
+        )
+      //.catch((error) => {
+        //alert(error.response.data.error);
+      //});
     },
     getLocation(event) {
       this.location = event;
