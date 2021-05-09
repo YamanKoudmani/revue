@@ -1,9 +1,10 @@
 export default [
 {id: 1, name: 'Housing'},
 {id: 2, name: 'Food'},
-{id: 3, name: 'Computer labs'},
-{id: 4, name: 'Physical Activities'},
-{id: 5, name: 'Library'},
-{id: 6, name: 'Creativity'},
-{id: 7, name: 'Postal Service'},
+{id: 3, name: 'IT Services'},
+{id: 4, name: 'Physical Services'},
+{id: 5, name: 'Libraries'},
+{id: 6, name: 'yay'},
+{id: 7, name: 'Mail Services'},
+{id: 8, name: 'Entertainment!'},
 ]

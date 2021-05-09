@@ -18,8 +18,7 @@
     <div class="bod">
       <h2>{{ currentService.name }}</h2>
       <h4>{{ currentService.description }}</h4>
-
-      <LocationsDisplay></LocationsDisplay>
+      <LocationsDisplay :currService="currentService"> </LocationsDisplay>
     </div>
 
     <div class="student">
@@ -52,51 +51,41 @@
 <script>
 import SearchBox from "@/components/SearchBox";
 import ServicesService from "@/services/ServicesService";
-import LocationsDisplay from "@/components/LocationsDisplay";
 import Rating from "@/components/Rating";
 import store from "@/store/index";
+import LocationsDisplay from '../components/LocationsDisplay.vue';
 export default {
   name: "Service",
   components: {
     SearchBox,
-    LocationsDisplay,
     Rating,
+    LocationsDisplay,
   },
   data() {
-    
     return {
       services: [],
       currentService: [],
-      
     };
   },
   mounted() {
     this.services = this.fetchData();
     this.currentService = store.state.selectedService;
-    
-    
-  },
-  watch: {
-    
-    $route() {
-      this.fetchData();
-      
-    },
-    
+    this.timer = setInterval(this.fetchCurrentService, 1000);
+
   },
   methods: {
     fetchData() {
-      
       ServicesService.list()
         .then((response) => {
           this.services = response.data;
-          
-          
         })
         .catch((e) => {
           this.error = e.response.data;
         });
     },
+    fetchCurrentService(){
+      this.currentService = store.state.selectedService;
+    }
   },
 };
 

@@ -2,7 +2,6 @@
   <div class="autocomplete">
     <div class="popover" v-show="visible">
       <input
-        @submit.prevent
         type="text"
         v-model="query"
         placeholder="Search for a service..."
@@ -13,7 +12,7 @@
             v-for="(match, index) in matches"
             :key="match[filterby]"
             :class="{ selected: selected == index }"
-            @click="itemClicked(index, $event)"
+            @click="itemClicked(index)"
             v-text="match[filterby]"
           ></li>
         </ul>
@@ -40,13 +39,10 @@ export default {
     toggleVisible() {
       this.visible = !this.visible;
     },
-    itemClicked(index, event) {
+    itemClicked(index) {
       this.getServiceDetails(index);
       this.selected = index;
-      if (event) {
-        event.preventDefault();
-        alert("prevent event");
-      }
+      this.query = "";
       //console.log(this.matches[index]);
     },
     selectItem() {
@@ -59,13 +55,7 @@ export default {
 
       ServicesService.getService(serviceName).then(response => {
         this.$store.dispatch('setServiceState', response.data);
-        
         this.$router.push({ name: "service" });
-        
-        location.reload();
-
-        
-        
         }).catch(e => {
         this.error = e.response.data
       })
