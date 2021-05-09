@@ -10,11 +10,7 @@
 export default {
   name: 'Rating',
   props: {
-    'name': String,
     'value': null,
-    'id': String,
-    'disabled': Boolean,
-    'required': Boolean
   },
 
   /*
@@ -22,7 +18,6 @@ export default {
    */
   data: function() {
     return {
-      temp_value: null,
       ratings: [1, 2, 3, 4, 5]
     };
   },
