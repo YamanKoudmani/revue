@@ -11,6 +11,7 @@
         account.
       </p>
     </div>
+    <input type="button" value="Home Page" class="logout" @click="logout()" />
   </div>
 </template>
 
@@ -18,7 +19,13 @@
 import AuthenticationService from "@/services/AuthenticationService";
 export default {
   name: "Confirmation",
-
+  methods: {
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+      this.$router.push({ name: "Home" });
+    },
+  },
   mounted() {
     AuthenticationService.confirmation();
   },
@@ -38,5 +45,19 @@ export default {
   text-align: center;
   border: 3px solid rgb(23, 92, 93);
   border-radius: 20px;
+}
+
+.logout {
+  float: right;
+  display: inline-block;
+  background: linear-gradient(45deg, #77aa99, #77ff95);
+  border-radius: 100px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  text-decoration: rgb(5, 5, 5);
+  font-weight: bold;
+  color: rgb(12, 12, 12);
+  box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
+  text-shadow: 0 1px 1px rgba(207, 35, 35, 0.2);
 }
 </style>

@@ -84,7 +84,8 @@ def login():
         return jsonify({"error": "User not found"}), 403
 
     user = users.first()
-
+    if not user.confirmed:
+        return jsonify({"error": "Account is not confirmed"}), 401
     if not check_password_hash(user.password, validated["password"]):
         return jsonify({"error": "Invalid password"}), 401
 
@@ -101,7 +102,8 @@ def login():
             "username": user.username,
             "email": user.email,
             "password": user.password,
-            "created": str(user.created)
+            "created": str(user.created),
+            "confirmed": user.confirmed
         },
         "token": token.decode("UTF-8")
     })
@@ -129,4 +131,4 @@ def confirm_email(token):
         user.save();
     except SignatureExpired:
         return '<h1>The link is expired!</h1>'
-    return '<h1>Your email has been verified please go back to the login page!</h1>'
+    return '<h1>Your email has been verified please go back to the login page!</h1>' 

@@ -3,25 +3,30 @@
     <form @submit.prevent="login">
       <h1>Login</h1>
       <p class="error">{{ error }}</p>
-      <input v-model="username" type="text" placeholder="Username" ref="username">
-      <input v-model="password" type="password" placeholder="Password">
-      <input class="button" type="submit" value="Login">
+      <input
+        v-model="username"
+        type="text"
+        placeholder="Username"
+        ref="username"
+      />
+      <input v-model="password" type="password" placeholder="Password" />
+      <input class="button" type="submit" value="Login" />
     </form>
   </div>
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthenticationService from "@/services/AuthenticationService";
 
 export default {
-  name: 'login',
+  name: "login",
 
   data() {
     return {
-      username: '',
-      password: '',
-      error: null
-    }
+      username: "",
+      password: "",
+      error: null,
+    };
   },
 
   methods: {
@@ -30,21 +35,21 @@ export default {
         username: this.username,
         password: this.password,
       })
-      .then(response => {
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
-        this.$router.push({name: 'Home'})
-      })
-      .catch(e => {
-        this.error = e.response.data.error
-      })
-    }
+        .then((response) => {
+          this.$store.dispatch("setToken", response.data.token);
+          this.$store.dispatch("setUser", response.data.user);
+          this.$router.push({ name: "Home" });
+        })
+        .catch((e) => {
+          this.error = e.response.data.error;
+        });
+    },
   },
 
   mounted() {
     this.$refs.username.focus();
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="css">
@@ -88,7 +93,7 @@ input {
   margin: 20px 0;
 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 </style>

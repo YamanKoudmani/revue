@@ -36,6 +36,7 @@ class User(Document):
             "hashedEmail": hashed_email,
             "subscribed": [subvue.to_public_json() for subvue in self.subscribed],
             "created": self.created,
+            "confirmed": self.confirmed,
         }
 
         return data
