@@ -62,6 +62,9 @@ const routes = [
     name: "Confirmation",
     component: () =>
       import(/*webpackChunkName: "Confirmation" */ "@/views/Confirmation"),
+    meta: {
+      hideNavBar: true,
+    },
   },
   {
     path: "/Dropdown",
