@@ -2,18 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <img
-          src="/assets/Knox.jpg"
-          class="rounded float-left"
-          width="300px;"
-          height="300px;"
-        />
+        <img src="@/assets/Knox.jpg" class="rounded-float-left" />
       </div>
       <div class="col-sm">
         <p>Services</p>
       </div>
       <div class="col-sm">
-        <img src="/assets/Knox_oldmain.jpg" width="450px;" height="300px; " />
+        <img class="knox-oldmain" src="@/assets/Knox_oldmain.jpg" />
       </div>
     </div>
 
@@ -23,8 +18,7 @@
     <div class="bod">
       <h2>{{ currentService.name }}</h2>
       <h4>{{ currentService.description }}</h4>
-
-      <LocationsDisplay></LocationsDisplay>
+      <LocationsDisplay :currService="currentService"> </LocationsDisplay>
     </div>
 
     <div class="student">
@@ -57,15 +51,15 @@
 <script>
 import SearchBox from "@/components/SearchBox";
 import ServicesService from "@/services/ServicesService";
-import LocationsDisplay from "@/components/LocationsDisplay";
 import Rating from "@/components/Rating";
 import store from "@/store/index";
+import LocationsDisplay from '../components/LocationsDisplay.vue';
 export default {
   name: "Service",
   components: {
     SearchBox,
-    LocationsDisplay,
     Rating,
+    LocationsDisplay,
   },
   data() {
     return {
@@ -76,11 +70,8 @@ export default {
   mounted() {
     this.services = this.fetchData();
     this.currentService = store.state.selectedService;
-  },
-  watch: {
-    $route() {
-      this.fetchData();
-    },
+    this.timer = setInterval(this.fetchCurrentService, 1000);
+
   },
   methods: {
     fetchData() {
@@ -92,8 +83,12 @@ export default {
           this.error = e.response.data;
         });
     },
+    fetchCurrentService(){
+      this.currentService = store.state.selectedService;
+    }
   },
 };
+
 </script>
 
 <style scoped>
@@ -102,6 +97,8 @@ export default {
   font-weight: bold;
   color: white;
   text-align: center;
+  
+  
 }
 .searchbox {
   width: 900px;
@@ -110,6 +107,7 @@ export default {
 }
 
 .bod {
+ 
   margin: 150px 30px 0;
   font-size: 30px;
   font-weight: bold;
@@ -148,11 +146,19 @@ h5 {
 }
 .container {
   background-color: rosybrown;
-  background-image: url("/assets/o.jpg");
+  background-image: url("~@/assets/o.jpg");
   background-size: 1900px 1150px;
   background-repeat: no-repeat;
   min-width: 100%;
   min-height: 100%;
+}
+.rounded-float-left {
+  width: 300px;
+  height: 300px;
+}
+.knox-oldmain {
+  width: 450px;
+  height: 300px;
 }
 input[type="button"] {
   display: inline-block;

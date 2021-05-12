@@ -24,11 +24,6 @@ export default {
     mounted(){
        this.fetchData()
     },
-    watch: {
-        $route() {
-            this.fetchData()
-        }
-    },
     methods: {
     fetchData() {
       ServicesService.list()

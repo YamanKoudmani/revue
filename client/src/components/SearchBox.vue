@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ServicesService from '@/services/ServicesService'
+import ServicesService from "@/services/ServicesService";
 export default {
   name: "SearchBox",
   props: ["items", "filterby"],
@@ -32,7 +32,7 @@ export default {
       selectedItem: null,
       query: "",
       visible: true,
-      temp: []
+      temp: [],
     };
   },
   methods: {
@@ -40,15 +40,17 @@ export default {
       this.visible = !this.visible;
     },
     itemClicked(index) {
-      this.getServiceDetails(index)
+      this.getServiceDetails(index);
       this.selected = index;
+      this.query = "";
       //console.log(this.matches[index]);
     },
     selectItem() {
       this.selectedItem = this.matches[this.selected];
       this.visible = false;
+      
     },
-    getServiceDetails(index){
+    getServiceDetails(index) {
       var serviceName = String(this.matches[index].name);
 
       ServicesService.getService(serviceName).then(response => {
@@ -57,6 +59,7 @@ export default {
         }).catch(e => {
         this.error = e.response.data
       })
+      
     }
   },
   computed: {
@@ -74,7 +77,7 @@ export default {
 
 <style scoped>
 .autocomplete {
-  width: 100%;
+  width: 90%;
   
   position: relative;
 }
@@ -99,7 +102,7 @@ export default {
 .popover {
   min-height: 50px;
   min-width: 100%;
-  
+
   border: 2px solid lightgray;
   position: absolute;
   left: 0;
