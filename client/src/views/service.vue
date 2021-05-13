@@ -1,49 +1,55 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="flex-container">
+    <div class="flex-row">
       <div class="col-sm">
-        <img src="@/assets/Knox.jpg" class="rounded-float-left" />
+        <img src="@/assets/Knox.jpg" class="title-image" style="float:left" />
       </div>
       <div class="col-sm">
         <p>Services</p>
       </div>
       <div class="col-sm">
-        <img class="knox-oldmain" src="@/assets/Knox_oldmain.jpg" />
+        <img class="title-image" src="@/assets/knoxfinal.png" style="float:right" />
       </div>
     </div>
-
+      <div class="tota">
     <div class="searchbox">
-      <SearchBox :items="services" filterby="name" />
+      <SearchBox :items="services" filterby="name" /> 
+    </div>
     </div>
     <div class="bod">
-      <h2>{{ currentService.name }}</h2>
-      <h4>{{ currentService.description }}</h4>
+      <h1>{{ currentService.name }}</h1>
+      <h4>{{ currentService.description }}</h4> <br />
       <LocationsDisplay :currService="currentService"> </LocationsDisplay>
     </div>
-
+     
     <div class="student">
       <h5>Student Reviews</h5>
 
+      <span
+        class="reviewsTop"
+        v-for="location in currentService.locations"
+        v-bind:key="location"
+      >
+        <h2>{{ location.name }}</h2> <br />
+        <ul class="reviewsMiddle">
+          <li class="reviewsMiddleBlock" v-for="Review in location.reviewList" v-bind:key="Review">
+          <br />
+            <p>{{ Review.username }} </p>
+            <div class="flex-list">
+            <div class="ReviewTitle"> <p> {{ Review.title }} </p></div>
+            <Rating class="ReviewRating" :value="Review.rating"></Rating>
+            </div> 
+            <p> {{ Review.content }} </p>
+          </li>
+        </ul>
+      </span>
       <input
         type="button"
         value="Add Reviews"
         style="float: right; font-size:20px;font-weight: bold; ,margin:0 0 0;"
         @click="$router.push({ name: 'create_review' })"
       />
-      <span
-        class="reviewsTop"
-        v-for="location in currentService.locations"
-        v-bind:key="location"
-      >
-        {{ location.name }} <br />
-        <ul class="reviewsMiddle">
-          <li v-for="Review in location.reviewList" v-bind:key="Review">
-            {{ Review.username }} <br />
-            {{ Review.title }} <Rating :value="Review.rating"></Rating> <br />
-            {{ Review.content }} <br /><br />
-          </li>
-        </ul>
-      </span>
+
     </div>
   </div>
 </template>
@@ -92,28 +98,61 @@ export default {
 </script>
 
 <style scoped>
+.flex-container {
+  background-color: rgba(69,49,72,255);
+  background-image: url("~@/assets/o.jpg");
+  background-size: 1900px 1150px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.flex-row{
+display:flex;
+flex-direction: row;
+width: 100%;
+height: 100%;
+flex-wrap: wrap;
+}
+.title-image {
+  object-fit: cover;
+  max-height: 100%;
+  max-width:100%;
+  margin: 10px;
+  border-radius: 25px;
+
+}
 .col-sm {
   font-size: 120px;
   font-weight: bold;
   color: white;
   text-align: center;
-  
-  
+  max-height: 300px;
+  margin: 5px;
+  flex: 1;
+}
+.tota{
+
+  width: 100%;
 }
 .searchbox {
-  width: 900px;
   margin: auto;
-  width: 50%;
+   width: 50%;
+  height: 100px;
+ 
 }
 
 .bod {
  
-  margin: 150px 30px 0;
+  margin: 0px 30px 0;
   font-size: 30px;
   font-weight: bold;
   text-align: left;
-  color: darkslategrey;
+  color: red;
   color: white;
+
+  height: auto;
 }
 
 .locate {
@@ -124,37 +163,52 @@ export default {
   color: darkslategrey;
 }
 .student {
-  margin: 35px 30px 0;
+  margin: 35px  0;
+  padding: 30px;
   font-size: 25px;
   font-weight: bold;
   text-align: left;
   color: darkslategrey;
   color: white;
-  background-color: black;
+  background-color: #432f48;
+  width: 100%;
 }
-
-h2 {
+.reviewsTop{
+  margin: 10px;
+  border: red;
+  
+  border-width: thick;
+ 
+}
+.reviewsMiddle{
+  margin: 20px;
+}
+.reviewsMiddleBlock{
+  border-bottom: 3px solid;
+}
+h1 {
   color: white;
+  font-weight: bold;
+  font-size: 100px;
 }
 .h4 {
   color: white;
+  font-size: 25px;
 }
 h5 {
   color: white;
   font-size: 40px;
   font-weight: bold;
 }
-.container {
-  background-color: rosybrown;
-  background-image: url("~@/assets/o.jpg");
-  background-size: 1900px 1150px;
-  background-repeat: no-repeat;
-  min-width: 100%;
-  min-height: 100%;
+
+.flex-list{
+  display: flex;
 }
-.rounded-float-left {
-  width: 300px;
-  height: 300px;
+.ReviewTitle{
+  flex: 50%;
+}
+.ReviewRating{
+  flex: 50%;
 }
 .knox-oldmain {
   width: 450px;
@@ -165,6 +219,7 @@ input[type="button"] {
   background: linear-gradient(45deg, #87adfe, #ff77cd);
   border-radius: 100px;
   padding: 10px 20px;
+  margin: 30px;
   box-sizing: border-box;
   text-decoration: seashell;
   color: #fff;
