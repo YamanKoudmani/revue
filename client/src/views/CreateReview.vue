@@ -47,7 +47,13 @@ export default {
 
       ServicesService.create(reviewData)
       .then(
-        this.$router.push({ name: 'service' })
+        ServicesService.getService(store.state.selectedService.name).then(response => {
+        this.$store.dispatch('setServiceState', response.data);
+        this.$router.push({ name: 'service' });
+        }).catch(e => {
+        this.error = e.response.data
+      })
+        //console.log(store.state.selectedService.locations)
         )
       //.catch((error) => {
         //alert(error.response.data.error);
