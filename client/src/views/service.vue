@@ -23,6 +23,12 @@
     </div>
      
     <div class="student">
+      <input
+        type="button"
+        value="Add Reviews"
+        style="float: right; font-size:20px;font-weight: bold; ,margin:0 0 0;"
+        @click="$router.push({ name: 'create_review' })"
+      />
       <h5>Student Reviews</h5>
 
       <span
@@ -43,12 +49,7 @@
           </li>
         </ul>
       </span>
-      <input
-        type="button"
-        value="Add Reviews"
-        style="float: right; font-size:20px;font-weight: bold; ,margin:0 0 0;"
-        @click="$router.push({ name: 'create_review' })"
-      />
+      
 
     </div>
   </div>
@@ -185,6 +186,7 @@ flex-wrap: wrap;
   list-style-type: none;
 }
 .reviewsMiddleBlock{
+  border-top: 3px solid;
   border-bottom: 3px solid;
 }
 h1 {
