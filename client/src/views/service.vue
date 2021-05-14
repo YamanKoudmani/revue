@@ -182,6 +182,7 @@ flex-wrap: wrap;
 }
 .reviewsMiddle{
   margin: 20px;
+  list-style-type: none;
 }
 .reviewsMiddleBlock{
   border-bottom: 3px solid;
