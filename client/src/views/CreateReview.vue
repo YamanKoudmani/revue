@@ -11,7 +11,7 @@
         <textarea
           v-model="content"
           name="name"
-          placeholder="Write your review here. (At least 50 words)."
+          placeholder="Write your review here, the more details the merrier!"
           rows="25"
           cols="80"
         ></textarea>
@@ -103,7 +103,7 @@ h1 {
   display: block;
   padding: 15px;
   background: linear-gradient(to left, #f19c63, #f4c6a8);
-  color: #fbff76;
+  color: #1f055e;
   font-weight: bolder;
   font-size: 20px;
 }
