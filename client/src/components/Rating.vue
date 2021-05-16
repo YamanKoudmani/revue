@@ -50,7 +50,7 @@ export default {
     vertical-align: middle;
     line-height: 1;
     font-size: 1.5em;
-    color: #ABABAB;
+    color: #ffffff54;
     transition: color .2s ease-out;
   }
 
@@ -60,7 +60,7 @@ export default {
     vertical-align: middle;
     line-height: 1;
     font-size: 1.5em;
-    color: #cac726;
+    color: #fcf700;
     transition: color .2s ease-out;
   }
 

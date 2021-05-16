@@ -47,7 +47,13 @@ export default {
 
       ServicesService.create(reviewData)
       .then(
-        this.$router.push({ name: 'service' })
+        ServicesService.getService(store.state.selectedService.name).then(response => { //pings the database
+        this.$store.dispatch('setServiceState', response.data); //gets information from database and adds to store, cus store is out of date even though database is
+        this.$router.push({ name: 'service' }); //reroutes you back to service page
+        }).catch(e => {
+        this.error = e.response.data
+      })
+        //console.log(store.state.selectedService.locations)
         )
       //.catch((error) => {
         //alert(error.response.data.error);

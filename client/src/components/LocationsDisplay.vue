@@ -1,8 +1,8 @@
 <template>
     <div class="list">
       <ul class="locList">
-        <li v-for="[location, ratVal] in ratingArr" :key="location">
-          {{location}} <Rating :value="ratVal"></Rating>
+        <li class="actualList" v-for="[location, ratVal] in ratingArr" :key="location">
+        <div class = "name">{{location}} </div> <Rating class="rating" :value="ratVal"></Rating>
         </li>
       </ul>
     </div>
@@ -78,15 +78,21 @@ export default {
 
 <style scoped>
 .list {
-  display: flex;
+  justify-content: flex-end;
 }
 
 .locList {
-  flex: 1;
   margin-top: 20px;
   margin-left: 20px;
 }
+.actualList{
+  display: flex;
+}
+.name{
+  flex: 40%;
+}
 .rating {
-  flex: 3;
+  flex: 60%;
+  
 }
 </style>
