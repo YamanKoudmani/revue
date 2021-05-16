@@ -69,15 +69,15 @@ export default {
   width: 100%;
   position: relative;
   font-size: 25px;
-  background: rgb(223, 224, 221);
+  background: #f4c6a8;
 }
 .prompt {
   font-size: 25px;
   text-align: center;
-}
-.dropdown {
-  top: 11px;
-  left: 11px;
-  font-size: 25px;
+  color: antiquewhite;
+  border-color: rgba(69, 49, 72, 255);
+  border-bottom-color: yellow;
+  border-style: solid;
+  border-width: 2px;
 }
 </style>
