@@ -44,7 +44,7 @@ export default {
         this.addedRatings += temp.reviewList[a].rating;
       }
       if (temp.reviewList.length > 0){
-          avg = this.addedRatings / temp.reviewList.length;
+          avg =parseInt( this.addedRatings / temp.reviewList.length);
       }
       this.ratingArr.set(temp.name, avg);
       this.addedRatings = 0;
