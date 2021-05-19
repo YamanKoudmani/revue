@@ -48,8 +48,7 @@ export default {
       console.log(this.title, this.location, this.content, this.rating);
 
       ServicesService.create(reviewData).then(
-        //wait 5 seconds
-        setTimeout(this.update, 5000)
+        setTimeout(this.update, 50)
         //console.log(store.state.selectedService.locations)
       );
       //.catch((error) => {
