@@ -1,16 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "@/views/Home";
 
 // GUIDE: This file defines urls for the frontend
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/Search",
     name: "Search-Page",
     component: () => import("@/views/SearchPage"),
   },
