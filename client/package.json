@@ -4,19 +4,27 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve-docker": "vue-cli-service serve --mode docker",
-    "build-docker": "vue-cli-service build --mode docker",
     "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "deploy": "sh deploy.sh",
-    "lint": "vue-cli-service lint"
+    "build-docker": "vue-cli-service build --mode docker",
+    "serve-docker": "vue-cli-service serve --mode docker"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.8",
     "axios": "^0.21.1",
+    "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "http-server": "^0.12.3",
+    "jquery": "^3.6.0",
     "marx-css": "^3.0.8",
     "vue": "^3.0.0-beta.1",
+    "vue-displacement-slideshow": "^3.0.1",
+    "vue-dynamic-star-rating": "^1.0.8",
+    "vue-flux": "^6.4.0",
     "vue-router": "^4.0.0-alpha.6",
+    "vue3-carousel": "^0.1.19",
+    "vueperslides": "^2.15.0",
     "vuex": "^4.0.0-alpha.1",
     "vuex-persistedstate": "^4.0.0-beta.3"
   },
@@ -28,8 +36,14 @@
     "@vue/cli-service": "^4.5.12",
     "@vue/compiler-sfc": "^3.0.0-beta.1",
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.6.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^7.0.0-alpha.0"
+    "eslint-plugin-vue": "^7.0.0-alpha.0",
+    "popper.js": "^1.16.1",
+    "portal-vue": "^2.1.7",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "vue-cli-plugin-bootstrap-vue": "~0.7.0"
   },
   "eslintConfig": {
     "root": true,

@@ -2,6 +2,7 @@
     <div class="star-rating">
       <ul>
         <li class="visible-stars" v-for="rating in parseInt(value)"  v-bind:key="rating">★</li>
+        
         <li class="invisible-stars" v-for="rating in parseInt(5-value)"  v-bind:key="rating">★</li>
       </ul>
     </div>
@@ -62,6 +63,7 @@ export default {
     font-size: 1.5em;
     color: #fcf700;
     transition: color .2s ease-out;
+    
   }
 
 

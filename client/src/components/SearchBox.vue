@@ -1,6 +1,7 @@
 <template>
   <div class="autocomplete">
     <div class="popover" v-show="visible">
+
       <input
         type="text"
         v-model="query"
@@ -77,7 +78,7 @@ export default {
 
 <style scoped>
 .autocomplete {
-  width: 90%;
+  width: 100%;
   
   position: relative;
 }

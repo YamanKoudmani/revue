@@ -1,14 +1,27 @@
 <template>
+
+  <div class="container">
     <div class="SearchPage">
-        <h1>Knox Rate-A-Service</h1>
+    
+      <h1>Knox Rate-A-Service</h1>
         <SearchBox :items="services" filterby="name" />
 
+        
+        </div>
+
+         <div class="size">
+      <slideshow/>
+      </div>
+  
+
+    
     </div>
 </template>
 
 <script>
 import SearchBox from '@/components/SearchBox'
 import ServicesService from '@/services/ServicesService'
+import slideshow from '@/components/slideshow.vue';
 
 //import services from '@/assets/services.js'
 export default {
@@ -19,7 +32,8 @@ export default {
         };
     },
     components: { 
-      SearchBox
+      SearchBox,
+        slideshow
     },
     mounted(){
        this.fetchData()
@@ -40,9 +54,30 @@ export default {
 </script>
 
 <style scoped>
+.container{
+ 
+  min-width: 100%;
+  min-height: 100%;
+  
+ 
+  
+}
 .SearchPage {
+  
+  align-content: center;
   margin: 0px auto;
   margin-top: 60px;
   width: 800px;
+  padding-bottom: 10px;
+}
+
+.size{
+
+  align-content: center;
+  margin: 100px auto;
+  width:50%;
+}
+h1{
+  margin-left: auto;
 }
 </style>
