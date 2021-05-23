@@ -49,28 +49,12 @@ export default {
       this.ratingArr.set(temp.name, avg);
       this.addedRatings = 0;
     }
-    console.log(this.ratingArr);
+    //console.log(this.ratingArr);
 
-    },
-    avgRating(locationL){
-      console.log("In method");
-      var y;
-      this.addedRatings = 0;
-        var temp = locationL;
-        for (y = 0; y < temp.reviewList.length; y++){
-          this.addedRatings += temp.reviewList[y].rating;
-          console.log("adding ratings...");
-        }
-      if (temp.reviewList.length > 0){
-      return this.addedRatings / temp.reviewList.length;
-      }
-      else {
-        return 0;
-      }
     },
     fetchCurrentService(){
       this.currentService = store.state.selectedService;
-      console.log(this.currentService);
+      //console.log(this.currentService);
     },
   },
 }
