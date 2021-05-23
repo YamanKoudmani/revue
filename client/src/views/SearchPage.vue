@@ -3,7 +3,7 @@
   <div class="container">
    
   <div class="header">
-    <h1>Knox Rate-A-Service</h1></div>
+    <h1>Knox<br>Rate-A-Service</h1></div>
     <div class="SearchPage">
       <SearchBox :items="services" filterby="name" />
     </div>
