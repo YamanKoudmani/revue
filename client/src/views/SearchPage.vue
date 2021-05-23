@@ -2,19 +2,18 @@
 
   <div class="container">
    
-  
-    
+  <div class="header">
+    <h1>Knox<br>Rate-A-Service</h1></div>
     <div class="SearchPage">
-    
-      <h1>Knox Rate-A-Service</h1>
-        <SearchBox :items="services" filterby="name" />
-
-        
-        </div>
-
-         <div class="size">
+      <SearchBox :items="services" filterby="name" />
+    </div>
+    <br><br><br><br><br>
+    <ul>
+    <li class="serviceList" v-for="service in services" :key="service">{{service.name}}</li> 
+    </ul>
+    <div class="size">
       <slideshow/>
-      </div>
+    </div>
   
 
     
@@ -62,7 +61,6 @@ export default {
   min-width: 100%;
   max-height: 50%;
   background-color:#432f48;
- 
   
 }
 .SearchPage {
@@ -74,14 +72,29 @@ export default {
   padding-bottom: 10px;
 }
 
-.size{
+ul {
+  text-align: center;
 
+}
+.serviceList{
+  padding: 15px;
+  font-size: 25px;
+  max-width: 800px;
+  color:white;
+  display: inline;
+  border-top-style: solid;
+  
+
+}
+.size{
   align-content: center;
-  margin: 100px auto;
+  margin: 50px auto;
   width:50%;
 }
 h1{
-  
+  margin: auto;
+  width: 50%;
+  text-align: center;
   align-content: center;
   font-size: 100px;
   font-weight: bold;
