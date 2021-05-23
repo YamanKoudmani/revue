@@ -78,6 +78,7 @@ ul {
 }
 .serviceList{
   padding: 15px;
+  padding-top: 3px;
   font-size: 25px;
   max-width: 800px;
   color:white;
