@@ -5,7 +5,7 @@
         <img src="@/assets/Knox.jpg" class="title-image" style="float:left" />
       </div>
       <div class="col-sm">
-        <p>Services</p>
+        <p style="font-family: 'Domine', serif;">Services</p>
       </div>
       <div class="col-sm">
         <img class="title-image" src="@/assets/knoxfinal.png" style="float:right" />
@@ -132,6 +132,7 @@ flex-wrap: wrap;
   max-height: 300px;
   margin: 5px;
   flex: 1;
+  
 }
 .tota{
 
@@ -193,15 +194,18 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 100px;
+  font-family: 'Domine', serif;
 }
 .h4 {
   color: white;
   font-size: 25px;
+  font-family: 'Domine', serif;
 }
 h5 {
   color: white;
   font-size: 40px;
   font-weight: bold;
+  font-family: 'Domine', serif;
 }
 
 .flex-list{

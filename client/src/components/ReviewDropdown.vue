@@ -79,5 +79,6 @@ export default {
   border-bottom-color: yellow;
   border-style: solid;
   border-width: 2px;
+  
 }
 </style>

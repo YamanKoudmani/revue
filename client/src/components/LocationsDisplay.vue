@@ -79,20 +79,25 @@ export default {
 <style scoped>
 .list {
   justify-content: flex-end;
+  
 }
 
 .locList {
   margin-top: 20px;
   margin-left: 20px;
+  font-family: 'Domine', serif;
 }
 .actualList{
   display: flex;
+  font-family: 'Domine', serif;
 }
 .name{
   flex: 40%;
+  font-family: 'Domine', serif;
 }
 .rating {
   flex: 60%;
+ 
   
 }
 </style>
