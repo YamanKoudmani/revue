@@ -2,11 +2,11 @@
 
   <div class="container">
    
-  <div class="header">
-    <h1>Knox Rate-A-Service</h1></div>
+  
+    
     <div class="SearchPage">
     
-      
+      <h1>Knox Rate-A-Service</h1>
         <SearchBox :items="services" filterby="name" />
 
         
@@ -81,7 +81,7 @@ export default {
   width:50%;
 }
 h1{
-  margin-left: 500px;
+  
   align-content: center;
   font-size: 100px;
   font-weight: bold;
