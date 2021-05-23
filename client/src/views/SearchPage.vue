@@ -1,6 +1,7 @@
 <template>
 
   <div class="container">
+   
   <div class="header">
     <h1>Knox Rate-A-Service</h1></div>
     <div class="SearchPage">
@@ -85,5 +86,8 @@ h1{
   font-size: 100px;
   font-weight: bold;
   color:white;
+  font-family: 'Domine', serif;
 }
+
+
 </style>
