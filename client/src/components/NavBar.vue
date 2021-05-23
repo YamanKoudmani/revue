@@ -40,7 +40,7 @@ nav {
 nav a {
   float: left;
   font-size: 16px;
-  color: white;
+  color: white !important;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;

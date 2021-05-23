@@ -1,7 +1,7 @@
 <template lang="html">
   <body>
     <div class="create-review container">
-      <h1>Add a review</h1>
+      <h1>Add a Review</h1>
       <form @submit.prevent="create" enctype="multipart/form-data">
         <Dropdown
           @location="getLocation($event)"
@@ -48,20 +48,22 @@ export default {
       console.log(this.title, this.location, this.content, this.rating);
 
       ServicesService.create(reviewData).then(
-        ServicesService.getService(store.state.selectedService.name)
-          .then((response) => {
-            //pings the database
+        setTimeout(this.update, 50)
+        //console.log(store.state.selectedService.locations)
+      );
+      //.catch((error) => {
+      //alert(error.response.data.error);
+      //});
+    },
+    update() {
+      
+        ServicesService.getService(store.state.selectedService.name).then((response) => { //pings the database
             this.$store.dispatch("setServiceState", response.data); //gets information from database and adds to store, cus store is out of date even though database is
             this.$router.push({ name: "service" }); //reroutes you back to service page
           })
           .catch((e) => {
             this.error = e.response.data;
           })
-        //console.log(store.state.selectedService.locations)
-      );
-      //.catch((error) => {
-      //alert(error.response.data.error);
-      //});
     },
     getLocation(event) {
       this.location = event;
