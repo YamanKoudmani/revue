@@ -26,6 +26,7 @@
       <input
         type="button"
         value="Add Reviews"
+        v-show="$store.state.isUserLoggedIn"
         style="float: right; font-size:20px;font-weight: bold; ,margin:0 0 0;"
         @click="$router.push({ name: 'create_review' })"
       />
