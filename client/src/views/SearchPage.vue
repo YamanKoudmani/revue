@@ -1,9 +1,11 @@
 <template>
 
   <div class="container">
+  <div class="header">
+    <h1>Knox Rate-A-Service</h1></div>
     <div class="SearchPage">
     
-      <h1>Knox Rate-A-Service</h1>
+      
         <SearchBox :items="services" filterby="name" />
 
         
@@ -57,8 +59,8 @@ export default {
 .container{
  
   min-width: 100%;
-  min-height: 100%;
-  
+  max-height: 50%;
+  background-color:#432f48;
  
   
 }
@@ -78,6 +80,10 @@ export default {
   width:50%;
 }
 h1{
-  margin-left: auto;
+  margin-left: 500px;
+  align-content: center;
+  font-size: 100px;
+  font-weight: bold;
+  color:white;
 }
 </style>

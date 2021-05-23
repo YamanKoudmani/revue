@@ -2,9 +2,9 @@
   
  <Carousel :autoplay="6000" :wrap-around="true">
       <template #slides>
-   <Slide class="slide1" v-for="image in images" :key="image">
-     <div class="carousel__item">
-     <img :src= "image">
+   <Slide class="slide1" v-for="image in images"  :key="image">
+     <div class="carousel__item" >
+     <img :src= "image" class="d-block w-100">
        </div>
      </Slide>
      </template>
@@ -33,10 +33,15 @@ export default {
       
       snapAlign: 'center',
       images: [
-          require("@/assets/Knox.jpg"),
+         
            require("@/assets/Knox_oldmain.jpg"),
-           "@/assets/Knox.jpg",
-           "@/assets/Knox_oldmain.jpg",
+          require("@/assets/cfa.jpg"),
+          require("@/assets/Library.jpg"),
+          require("@/assets/smc.jpg"),
+          require("@/assets/Art.jpg"),
+          require("@/assets/gizmo.jpg"),
+           require("@/assets/fraire.jpg"),
+           
            
       
       ]
