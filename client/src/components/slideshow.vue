@@ -41,6 +41,10 @@ export default {
           require("@/assets/Art.jpg"),
           require("@/assets/gizmo.jpg"),
            require("@/assets/fraire.jpg"),
+            require("@/assets/fieldhouse.jpg"),
+            require("@/assets/gdh.jpg"),
+            require("@/assets/alumni.jpg"),
+            
            
            
       
