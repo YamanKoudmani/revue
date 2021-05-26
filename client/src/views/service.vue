@@ -39,11 +39,13 @@
       >
         <h2>{{ location.name }}</h2> <br />
         <ul class="reviewsMiddle">
+          <p v-if="location.reviewList.length == 0" >No reviews yet...</p>
           <li class="reviewsMiddleBlock" v-for="Review in location.reviewList" v-bind:key="Review">
           <br />
             <p>{{ Review.username }} </p>
             <div class="flex-list">
             <div class="ReviewTitle"> <p> {{ Review.title }} </p></div>
+
             <Rating class="ReviewRating" :value="Review.rating"></Rating>
             </div> 
             <p> {{ Review.content }} </p>
