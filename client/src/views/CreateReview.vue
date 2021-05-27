@@ -15,7 +15,7 @@
           rows="25"
           cols="80"
         ></textarea>
-        <input class="submit" type="submit" value="Submit" />
+        <input :disabled="!title.length || !content.length" class="submit" type="submit" value="Submit" />
       </form>
     </div>
   </body>
