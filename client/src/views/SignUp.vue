@@ -2,7 +2,7 @@
   <div class="signup">
     <form @submit.prevent="signUp">
       <h1>Sign Up</h1>
-      <h2>Please note @knox.edu email address is required</h2>
+      
       <p class="error" :class="{ 'deprecated-error': deprecatedError }">
         {{ error }}
       </p>
@@ -123,10 +123,7 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  text-align: center;
-  font-size: 15px;
-}
+
 
 input {
   display: block;

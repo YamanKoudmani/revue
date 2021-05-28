@@ -30,7 +30,7 @@ MAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@knox+\.+edu+$)"
 def sign_up():
     schema = Schema({
         "username": str,
-        "email": Regex(MAIL_REGEX, error="Mail address is invalid"),
+        "email": Regex(MAIL_REGEX, error="username@knox.edu address required"),
         "password": str
     })
     validated = schema.validate(request.json)
