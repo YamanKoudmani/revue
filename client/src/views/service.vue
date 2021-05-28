@@ -30,7 +30,8 @@
         style="float: right; font-size:20px;font-weight: bold; ,margin:0 0 0;"
         @click="$router.push({ name: 'create_review' })"
       />
-      <h5>Student Reviews</h5>
+      <h6>Note: Only logged in users can submit a review, but everyone is welcome to read! </h6> <br />
+      <h5>Student Reviews</h5> 
 
       <span
         class="reviewsTop"
@@ -208,6 +209,12 @@ h5 {
   color: white;
   font-size: 40px;
   font-weight: bold;
+  font-family: 'Domine', serif;
+}
+h6 {
+  color: white;
+  font-size: 20px;
+  font-weight: italic;
   font-family: 'Domine', serif;
 }
 

@@ -31,7 +31,6 @@ const routes = [
   {
     path: "/u/:username",
     name: "User",
-    component: () => import(/* webpackChunkName: "user" */ "@/views/User"),
   },
   {
     path: "/create",
