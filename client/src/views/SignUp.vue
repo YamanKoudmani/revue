@@ -95,7 +95,7 @@ export default {
 
 <style scoped lang="css">
 .signup {
-  background: rgb(23, 92, 93);
+  background-color: rgba(69, 49, 72, 255); 
   background-image: url(/static/newsletter-login.jpg);
   background-position: center;
   background-size: cover;
@@ -123,7 +123,10 @@ h1 {
   text-align: center;
 }
 
-
+.button{
+  background: #f19c63!important;
+  color: black!important;
+}
 
 input {
   display: block;
