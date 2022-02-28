@@ -4,7 +4,7 @@ Example implementation of a clear website for submitting course and service revi
 By Yaman Koudmani, Kartikay Bhuchar, Mujtaba Hassan, and Tuan Nguyen.
 
 
-![Screenshot](https://i.ibb.co/wwqpwNJ/Search-Page.png)
+![Screenshot](https://i.ibb.co/8M11H3p/Search-Page.png)
 ![Screenshot](https://i.ibb.co/wwqpwNJ/Reviews-Example.png)
 ## Installation
 
