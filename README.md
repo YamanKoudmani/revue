@@ -1,9 +1,9 @@
-# revue
+# College Student Rating and Recommendation Service Concept
 
-A reddit clone built with Vue.js and Flask
-
-![Screenshot](https://raw.githubusercontent.com/Lanseuo/revue/master/screenshot.png)
-
+Example implementation of a clear website for submitting course and service reviews for Knox, built using Vue, Flask, and Mongo, based on Vue starter project (see below).
+By Yaman Koudmani, Kartikay Bhuchar, Mujtaba Hassan, and Tuan Nguyen.
+![Screenshot](https://i.ibb.co/wwqpwNJ/Search-Page.png)
+![Screenshot](https://i.ibb.co/wwqpwNJ/Reviews-Example.png)
 ## Installation
 
 ```bash
@@ -62,4 +62,4 @@ Lucas Hild - [https://lucas-hild.de](https://lucas-hild.de)
 This project is licensed under the MIT License - see the LICENSE file for details
 
 ## Update
-Updated to Vue 3 by me (@mrmechko).
+Forked from original projected by (@mrmechko).
