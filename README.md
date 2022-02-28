@@ -64,4 +64,4 @@ Lucas Hild - [https://lucas-hild.de](https://lucas-hild.de)
 This project is licensed under the MIT License - see the LICENSE file for details
 
 ## Update
-Forked from original projected by (@mrmechko).
+Forked from original project by (@mrmechko).
